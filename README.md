@@ -18,9 +18,9 @@
 |adress_id|references|null: false, foreign_key: true|
 |user_img|string|null: false, foreign_key: true|
 ### Association
--has_many :items
--has_many :comments
--has_many :addresses
+- has_many :items
+- has_many :comments
+- has_many :addresses
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -32,8 +32,8 @@
 |house_number|string|null: false|
 |building_name|string||
 ### Association
--belongs_to :user
--belongs_to_active_hash :prefecture_code
+- belongs_to :user
+- belongs_to_active_hash :prefecture_code
 
 
 ## itemsテーブル
@@ -55,11 +55,11 @@
 |seller|references|null: false,foreign_key: true|
 |buyer|references|foreign_key: true|
 ### Association
--belongs_to :user
--belongs_to :lv1_category
--has_many :comments
--has_many :item_imgs
--belongs_to_active_hash :prefecture_code
+- belongs_to :user
+- belongs_to :lv1_category
+- has_many :comments
+- has_many :item_imgs
+- belongs_to_active_hash :prefecture_code
 
 ## item_imgsテーブル
 |Column|Type|Options|
@@ -67,7 +67,7 @@
 |url|string|null:false|
 |item_id|references|null: false, foreign_key: true|
 ### Association
--belongs_to :item
+- belongs_to :item
 
 ## commentsテーブル
 |Column|Type|Options|
@@ -76,16 +76,16 @@
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 ### Association
--belongs_to :user
--belongs_to :item
+- belongs_to :user
+- belongs_to :item
 
 ## lv1_categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
 ### Association
--has_many :items
--has_many :lv2_categories
+- has_many :items
+- has_many :lv2_categories
 
 ## lv2_categoriesテーブル
 |Column|Type|Options|
@@ -93,8 +93,8 @@
 |name|string|null:false|
 |lv1_category_id|references|null: false, foreign_key: true|
 ### Association
--belongs_to :lv1_category
--has_many :lv3_categories
+- belongs_to :lv1_category
+- has_many :lv3_categories
 
 ## lv3_categoriesテーブル
 |Column|Type|Options|
@@ -102,4 +102,4 @@
 |name|string|null:false|
 |lv2_category_id|references|null: false, foreign_key: true|
 ### Association
--belongs_to :lv2_category
+- belongs_to :lv2_category
