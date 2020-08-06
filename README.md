@@ -17,7 +17,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :addresses
+- has_one :address
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 
@@ -48,16 +48,16 @@
 |size|references|null: false,foreign_key: true|
 |shipping_days|references|null: false,foreign_key: true|
 |sipping_method|references|null: false,foreign_key: true|
-|item_img|references|null: false,foreign_key: true|
 |category|references|null: false,foreign_key: true|
 |order_status|enum|null: false|
 |seller|references|null: false,foreign_key: true|
 |buyer|references|foreign_key: true|
 ### Association
 - has_many :comments
-- has_many :item_imgs
+- has_many :item_images
 - belongs_to :user
 - belongs_to :category
+- belongs_to :brand
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :fee_burden
 - belongs_to_active_hash :prefecture
@@ -67,7 +67,7 @@
 - belongs_to :seller, class_name:"User"
 - belongs_to :buyer, class_name:"User"
 
-## item_imgsテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null:false|
@@ -90,5 +90,12 @@
 |------|----|-------|
 |name|string|null:false|
 |ancestry|string|null:false|
+### Association
+- has_many :items
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string||
 ### Association
 - has_many :items
