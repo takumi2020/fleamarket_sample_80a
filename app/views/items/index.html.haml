@@ -1,20 +1,6 @@
 -# hamada ここから
-.header
-  .header--main
-    .header--main-logo
-      = image_tag 'logo/logo.png', class: "header--main-img"
-    .header--main__form
-      = form_with url: root_path(class: 'header--main__form') do |form|
-        = form.text_field :keyword, placeholder: "キーワードから探す", class: "header--main__form-text", autocomplete: "off"
-        = form.submit class: "header--main__form__btn", value: ""
-        = image_tag 'icon/icon-search 1.png', class: "header--main__form__serach", width: '20px'
-  .header--content
-    %ul.header--contentleft
-      %li.header--contentleft1 カテゴリー
-      %li.header--contentleft1 ブランド
-    %ul.header--contentrigth
-      %li.header--contentrigth1 ログイン
-      %li.header--contentrigth1 新規会員登録
+= render partial: "toppage/header"
+
 ​
 .main.AppBanner1
   .main-top
@@ -61,37 +47,111 @@
       ほしかったあの商品に出会えるかもしれません。
     = image_tag 'app-store.png', class: "appbtn"
     = image_tag 'google-play.png', class: "appbtn"    
--# hamada ここまで
+
 ​
+
+.main2
+  %section.topKeyFeatures
+    %h2.head FURIMAの特徴
+    .items
+      %section.item
+        %figure.item__img
+          %img{src: "/assets/icon/icon-01.png", height: "337.61", width: "219.33"}/
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item
+        %figure.item__img
+          %img{src: "/assets/icon/icon-03.png", height: "337.61", width: "219.33"}/
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item
+        %figure.item__img
+          %img{src: "/assets/icon/icon-04.png", height: "337.61", width: "219.33"}/
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 ​
-%section.topKeyFeatures
-  %h2.head FURIMAの特徴
-  .items
-    %section.item
-      %figure.item__img
-        %img{src: "/assets/icon/icon-01.png", height: "337.61", width: "219.33"}/
-      %h3.item__subtitle 簡単に売り買いできる
-      %p.item__detail
-        スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-    %section.item
-      %figure.item__img
-        %img{src: "/assets/icon/icon-03.png", height: "337.61", width: "219.33"}/
-      %h3.item__subtitle 売上金は即日振込みに対応
-      %p.item__detail
-        午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-    %section.item
-      %figure.item__img
-        %img{src: "/assets/icon/icon-04.png", height: "337.61", width: "219.33"}/
-      %h3.item__subtitle 様々な支払いに対応
-      %p.item__detail
-        お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-​
-%section.pickupContainer
+.pickupContainer
   %h2.head ピックアップカテゴリー
   .productBox
     .productHead
       %a{href: "#"}
         %h3.title 新規投稿商品
+    .productLists
+      .productList
+        %a{href: "#"}
+          %figure.productList--img
+            %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG", height: "150", width: "220"}/
+          .productList--body
+            %h3.name テスト
+            .details
+              %ul
+                %li 10000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  1
+              %p (税込)
+      .productList
+        %a{href: "#"}
+          %figure.productList--img
+            %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/16/IMG_9072.JPG", height: "150", width: "220"}/
+          .productList--body
+            %h3.name ee
+            .details
+              %ul
+                %li 1000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+      .productList
+        %a{href: "#"}
+          %figure.productList--img
+            %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", height: "150", width: "220"}/
+          .productList--body
+            %h3.name product3
+            .details
+              %ul
+                %li 30000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+      .productList
+        %a{href: "#"}
+          %figure.productList--img
+            %img{src: "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", height: "150", width: "220"}/
+          .productList--body
+            %h3.name product2
+            .details
+              %ul
+                %li 20000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p (税込)
+      .productList
+        %a{href: "#"}
+          %figure.productList--img
+            %img{src:"https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", height: "150", width: "220"}/
+          .productList--body
+            %h3.name product1
+            .details
+              %ul
+                %li 10000円
+                %li
+                  %i.fa.fa-star.likeIcon
+                  1
+              %p (税込)
+​
+.pickupContainer
+  %h2.head ピックアップブランド
+  .productBox
+    .productHead
+      %a{href: "#"}
+        %h3.title アーカイバ
     .productLists
       .productList
         %a{href: "#"}
@@ -158,3 +218,23 @@
                   %i.fa.fa-star.likeIcon
                   1
               %p (税込)
+​
+.appBanner
+  .inner
+    .inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .inner__icon
+      %a{href: "#"}
+        %img.linkIcon.aBtn{src: "/assets/app-store.png"}/
+      %a{href: "#"}
+        %img.linkIcon.gBtn{src: "/assets/google-play.png"}/
+
+= render partial: "toppage/footer"
+​
+
+%a{href: "#"}
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    %img.purchaseBtn__icon{src: "/assets/icon/icon_camera.png"}/
+​
+// 岩谷ここまで
