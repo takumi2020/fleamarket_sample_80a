@@ -1,0 +1,17 @@
+.header
+  .header--main
+    .header--main-logo
+      = image_tag 'logo/logo.png', class: "header--main-img"
+    .header--main__form
+      = form_with url: root_path(class: 'header--main__form') do |form|
+        = form.text_field :keyword, placeholder: "キーワードから探す", class: "header--main__form-text", autocomplete: "off"
+        = form.submit class: "header--main__form__btn", value: ""
+        = image_tag 'icon/icon-search 1.png', class: "header--main__form__serach", width: '20px'
+  .header--content
+    %ul.header--contentleft
+      %li.header--contentleft1 カテゴリー
+      %li.header--contentleft1 ブランド
+    %ul.header--contentrigth
+      %li.header--contentrigth1 ログイン
+      %li.header--contentrigth1 新規会員登録
+​
