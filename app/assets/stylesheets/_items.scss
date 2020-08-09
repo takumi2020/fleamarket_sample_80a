@@ -334,13 +334,13 @@ form{
   .productBox{
     .productHead {
       text-align: center;
-      a {
-        font-size: 24px;
+      .title{
+        display: inline-block;
         text-decoration: none;
-        color: #3CCACE;
-        h3 {
-          font-weight: bold;
-        }
+        font-size: 24px;
+        color: #3CCACE; 
+        font-weight: bold;
+        
       }
     }
     .productLists {
@@ -423,7 +423,7 @@ form{
 
 .appBanner{
   background-image: url(/assets/pict/bg-appBanner-pict.jpg);
-  background-position: 0px -170px;
+  background-position: 0px -50px;
   padding: 100px 40px;
   position: relative;
   background-size: cover;
@@ -529,6 +529,7 @@ form{
 }
 .purchaseBtn{
   width: 120px;
+  height: 120px;
   background: #3CCACE;
   text-align: center;
   border-radius: 4%;
@@ -537,13 +538,10 @@ form{
   position: fixed;
   padding: 15px;
   &__text {
+    text-decoration: none;
     color: #fff;
     display: block;
     font-size: 18px;
-    text-decoration: none;
     margin-bottom: 5px;
-  }
-  &__icon {
-    width: 60%;
   }
 }
