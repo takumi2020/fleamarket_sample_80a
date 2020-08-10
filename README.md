@@ -13,7 +13,7 @@
 |birthday|date|null: false|
 |tell|integer|unique: true|
 |introduction|text||
-|user_img|string|null: false, foreign_key: true|
+|user_img|string|null: false|
 ### Association
 - has_many :items
 - has_many :comments
