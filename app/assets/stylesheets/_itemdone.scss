@@ -1,0 +1,116 @@
+.wrapper {
+  &__done{
+    font-size: 14px;
+    .top{
+    align-items: center;
+    display: flex;
+    height: 128px;
+    justify-content: center;
+    }
+    .middle{
+      background-color: white;
+      max-width: 700px;
+      text-align: center;
+      margin-left: 343px;
+      .purchaseConfirm{
+        &__contents{
+          border-top: 1px solid #f8f8f8;
+          padding: 32px 16px;
+          max-width: 375px;
+          margin: 0px auto;
+          .title{
+            font-size: 25px;
+            font-weight: bold;
+          }
+          .item{
+            display: flex;
+            justify-content: space-between;
+            &__img{
+              display: flex;
+              justify-content: center;
+              height: 80px;
+              width: 80px;
+              align-items: center;
+            }
+          }
+          .priceConfirm{
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .amount{
+              font-size: 18px;
+            }
+            .price{
+              font-size: 24px;
+            }
+          }
+          .paymentOptions{
+            &__content{
+              display: flex;
+              justify-content: space-between;
+              .paymentOption{
+                font-weight: bold;
+              }
+            }
+            .cardInformation{
+              text-align: left;
+              .visa{
+                margin-top: 5px;
+              }
+            }
+          }
+          .changeButton{
+            align-items: center;
+            color: #0095ee;
+            text-decoration: none;
+          }
+          .shippingAddress{
+            .shipping{
+              display: flex;
+              justify-content: space-between;
+              &__title{
+                font-weight: bold;
+                margin-bottom: 8px;
+              }
+            }
+            .userAddress{
+              text-align: left;
+            }
+          }
+          .purchaseButton{
+            width: 100%;
+            background-color: #3CCACE;
+            color: #fff;
+            font-size: 17px;
+            min-height: 48px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    .bottom{
+      padding: 40px 0px 41px;
+      text-align: center;
+      .bottomContents{
+        .bottomLists{
+          margin: -16px 0px 30px -16px;
+          font-size: 12px;
+          display: flex;
+          justify-content: center;
+          .other{
+            padding: 0 10px;
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.paragraph{
+  margin-top: 5px;
+}
