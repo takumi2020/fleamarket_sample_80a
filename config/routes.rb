@@ -11,5 +11,11 @@ Rails.application.routes.draw do
     end
   end
   root 'items#index'
-  resources :items
+
+  resources :items do
+    collection do
+      get 'done'
+    end
+  end
+ 
 end
