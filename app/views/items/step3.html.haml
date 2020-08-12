@@ -1,0 +1,50 @@
+= stylesheet_link_tag 'usernew/step3', media: 'all'
+.top
+  = image_tag "logo/logo.png", class: :top__image
+  .box
+    .form
+      %h2.top__text
+        会員情報入力
+      .form_text
+        %label.textlabel(for="file")郵便番号
+        %span.textimage 必須
+      %input.input-text{name: :nickname, placeholder: :"例）123-4567", type: :text}/
+      .form_text
+        %label.textlabel(for="file")都道府県
+        %span.textimage 必須
+      .serect
+        %select.selectprefecture{name: :Prefecture}
+          %option{:value => "0"}  --
+          %option{:value => "1"}  北海道
+          %option{:value => "2"} 青森県
+          %option{:value => "3"} 岩手県
+          %option{:value => "4"} 宮城県
+          %option{:value => "5"} 秋田県
+          %option{:value => "6"} 山形県
+          %option{:value => "7"} 福島県
+          %option{:value => "8"} 茨城県
+      .form_text
+        %label.textlabel(for="file")市区町村
+        %span.textimage 必須
+      %input.input-text{name: :password, placeholder: :"例)横浜市緑区", type: :text}/
+      .form_text
+        %label.textlabel(for="file")番地
+        %span.textimage 必須
+      %input.input-text{name: :password, placeholder: :"例)青山1-1-1", type: :text}/
+      .form_text
+        %label.textlabel(for="file")建物名
+        %span.textimage 必須
+      %input.input-text{name: :password, placeholder: :"例)柳ビル103", type: :text}/
+    .next
+      %button.nextbtn{type: :button}
+        次へ進む
+  .bottomlink
+    =link_to "#", class: "privacy" do
+      プライバシーポリシー
+    =link_to "#", class: "service" do
+      利用規約
+    =link_to "#", class: "notation" do
+      特定商取引に関する表記
+  .bottom
+    = image_tag "logo/logo.png", class: :bottomlogo
+  %p.logotext ©️ FURIMA

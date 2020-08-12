@@ -58,6 +58,18 @@
 }
 .header--contentrigth1{
   margin:  10px;
+  .login {
+    text-decoration: none;
+  }
+  .login:visited {
+    color: black;
+  }
+  .usernew {
+    text-decoration: none;
+  }
+  .usernew:visited {
+    color: black;
+  }
 }
 .header--contentleft1{
   margin:  10px;

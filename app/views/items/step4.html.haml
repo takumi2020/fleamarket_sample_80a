@@ -1,0 +1,23 @@
+= stylesheet_link_tag 'usernew/step4', media: 'all'
+.top
+  = image_tag "logo/logo.png", class: :top__image
+  .box
+    %h2.top__text
+      会員登録完了
+    %p.bottomtext
+      ありがとうございます。
+      %br/
+      会員登録が完了しました。
+    .next
+      %button.nextbtn{type: :button}
+        フリマをはじめる
+  .bottomlink
+    =link_to "#", class: "privacy" do
+      プライバシーポリシー
+    =link_to "#", class: "service" do
+      利用規約
+    =link_to "#", class: "notation" do
+      特定商取引に関する表記
+  .bottom
+    = image_tag "logo/logo.png", class: :bottomlogo
+  %p.logotext ©️ FURIMA

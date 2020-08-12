@@ -1,0 +1,148 @@
+.top {
+  text-align: center;
+  width: 100vw;
+  height: 900px;
+  margin: 0 auto;
+  background: #f8f8f8;
+  &__image {
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 40px;
+  }
+  .form {
+    &__text {
+      display: flex;
+      padding-bottom: 8px;
+      // align-items: center;
+      justify-content: center;
+      .textlabel {
+        // display: block;
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .textimage {
+        // display: block;
+        padding-left: 20px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background: #ea352d;
+      }
+  }
+  
+    .input-text {
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: 380px;
+    }
+    &__text1 {
+      padding-top: 10px;
+    }
+  }
+}
+.textlabel {
+  // display: block;
+  font-weight: 600;
+  font-size: 16px;
+  padding-right: 290px;
+}
+.textimage {
+  // display: block;
+  padding-left: 20px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+.boxtext {
+  padding-top: 10px;
+}
+.sms {
+  padding-top: 30px;
+}
+.smsbtn {
+  width: 430px;
+  font-size: 14px;
+  text-align: center;
+  height: 60px;
+  background-color: #3ccace;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer
+  
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 40px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.bottomtext {
+  padding: 10px;
+  margin-bottom: 40px;
+}
+.bottomlink {
+  padding-top: 80px;
+  font-size: 12px;
+}
+.box {
+  margin-top: 40px;
+  width: 60%;
+  margin: 0 auto;
+  background: #fff;
+  .numbercheck {
+    text-align: right;
+    display: block;
+    margin-right: 225.8px;
+    padding-bottom: 70px;
+  }
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.input-text {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 380px;
+}
+.numbercheck {
+  text-decoration: none;
+}

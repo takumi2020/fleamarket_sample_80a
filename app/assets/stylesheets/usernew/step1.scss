@@ -1,0 +1,197 @@
+.top {
+  width: 100vw;
+  height: 1600px;
+  margin: 0 auto;
+  background: #f8f8f8;
+  .box {
+    width: 70%;
+    height: 1300px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  text-align: center;
+  &__image {
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 60px;
+  }
+  .form {
+    height: 100%;
+      .textlabel {
+        // display: block;
+        font-weight: 600;
+        font-size: 16px;
+        margin-left: 30px;
+      }
+      .textimage {
+        // display: block;
+        padding-left: 20px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background: #ea352d;
+      }
+  
+  
+    .input-text {
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: 380px;
+    }
+    &__text1 {
+      padding-top: 10px;
+    }
+  }
+}
+.textlabel {
+  // display: block;
+  font-weight: 600;
+  font-size: 16px;
+  display: inline-block;
+}
+.textimage {
+  // display: block;
+  padding-left: 300px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+.infotext {
+  color: #888;
+  padding-top: 8px;
+}
+.passcheck {
+  margin-top: 10px;
+}
+.usercheck {
+  &__toptext {
+    font-size: 22px;
+    padding-top: 20px;
+  }
+}
+.form_text2-1 {
+  .input-text2 {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 180px;
+  }
+}
+.form_text3-1 {
+  .selectyear {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 120px;
+  }
+}
+.bottomtext {
+  color:#888;
+  padding-top: 8px;
+  text-decoration: none;
+}
+.nextbtn {
+  margin-top: 40px;
+  width: 430px;
+  font-size: 14px;
+  text-align: center;
+  height: 60px;
+  background-color: #3ccace;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer
+}
+.englishbox {
+  width: 400px;
+  background-color: #f8f8f8;
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+  padding-bottom: 10px;
+  .english {
+    width: 400px;
+    background-color: #f8f8f8;
+    font-size: 14px; 
+  }
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 10px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+
+.bottomlink {
+  padding-top: 100px;
+  font-size: 14px;
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.info {
+  padding-top: 45px;
+}
+.form__text {
+  position: relative;
+  left: 220px;
+}
+
+.text2{
+  position: relative;
+  left: -127px;
+}
+.info {
+  padding-bottom: 20px;
+  margin-left: 200px;
+}
+.text1 {
+  padding-right: 300px;
+}
+.form_text.text2 {
+  padding-top: 20px;
+}
+.userinfo {
+  text-decoration: none;
+}
