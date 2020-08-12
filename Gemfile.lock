@@ -102,7 +102,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    dotenv (2.7.6)
     erubi (1.9.0)
     erubis (2.7.0)
     ffi (1.13.1)
@@ -290,7 +289,6 @@ DEPENDENCIES
   capistrano3-unicorn
   capybara (>= 2.15)
   devise
-  dotenv
   font-awesome-sass
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
