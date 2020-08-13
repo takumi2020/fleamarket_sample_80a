@@ -3,10 +3,12 @@
 @import "font-awesome";
 @import "items";
 @import "itemnew";
+@import "usershow";
 
 
 .wrapper{
   background-color: #f8f8f8;
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  overflow: scroll;
 }
