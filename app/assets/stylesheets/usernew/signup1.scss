@@ -1,0 +1,209 @@
+.top {
+  text-align: center;
+  &__image {
+    display: block;
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding-top: 40px;
+  }
+  .form {
+    &__text {
+      display: flex;
+      padding-bottom: 8px;
+      justify-content: center;
+      .textlabel {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .textimage {
+        // display: block;
+        padding-left: 20px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background: #ea352d;
+      }
+  }
+  
+    .input-text {
+      padding-top: 40px;
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: 380px;
+    }
+    &__text1 {
+      padding-top: 10px;
+    }
+  }
+}
+.textlabel {
+  font-weight: 600;
+  font-size: 16px;
+}
+.textimage {
+  padding-left: 20px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+.infotext {
+  color: #888;
+  padding-top: 8px;
+}
+.passcheck {
+  margin-top: 10px;
+}
+.usercheck {
+  &__toptext {
+    font-size: 22px;
+    padding-top: 20px;
+  }
+}
+.form_text2-1 {
+  .input-text2 {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 180px;
+  }
+}
+.form_text3-1 {
+  .selectyear {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 120px;
+  }
+}
+.bottomtext {
+  color:#888;
+  padding-top: 8px;
+}
+.new {
+  padding-top: 20px;
+  .newbtn {
+    width: 430px;
+    font-size: 14px;
+    text-align: center;
+    height: 60px;
+    border: 1px solid #0099e8;
+    background: #0099e8;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer
+  }
+}
+.english {
+  padding: 20px;
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.selectprefecture {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 380px;
+}
+.bottomlink {
+  padding-top: 80px;
+}
+.textlabel {
+  padding-top: 40px;
+}
+.form_text {
+  padding-top: 40px;
+}
+.form_text1 {
+  padding-top: 20px;
+}
+.login {
+  padding-top: 40px;
+  .loginbtn {
+    width: 430px;
+    font-size: 14px;
+    text-align: center;
+    height: 60px;
+    border: none;
+    background: #3ccace;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer
+  }
+}
+.forget {
+  padding-top: 60px;
+  text-align: left;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+// #3ccace フリマカラー
+.form_box {
+  height: 600px;
+  max-width: 456px;
+  margin: 0 auto;
+  background: #fff;
+}
+.form {
+  background-color: #f8f8f8;
+}
+.bottomlink {
+  font-size: 12px;
+  .privacy {
+    text-decoration: none;
+  }
+  .service {
+    padding-left: 9px;
+    text-decoration: none;
+  }
+  .notation {
+    padding-left: 9px;
+    text-decoration: none;
+  }
+}
+.forgetlink {
+  text-decoration: none;
+}

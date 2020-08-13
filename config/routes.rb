@@ -12,10 +12,16 @@ Rails.application.routes.draw do
   #   end
   # end
   root 'items#index'
-
   resources :items do
     collection do
-      get 'done'
+      get "new_user"
+      get "new_telephone"
+      get "new_address"
+      get "user_done"
+      get "signup_new"
+      get "signup_done"
     end
   end
+  
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

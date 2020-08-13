@@ -12,20 +12,9 @@
       %li.header--contentleft1 カテゴリー
       %li.header--contentleft1 ブランド
     %ul.header--contentrigth
-      - if user_signed_in?
-        %li.mypage
-          = link_to '#', class: "mypage_btn" do
-            マイページ
-        %li.logout
-          = link_to destroy_user_session_path, class: "logout" do
-            ログアウト
-      - else
-        %li.header--contentrigth1
-          = link_to new_user_session_path, class: "header--contentrigth1" do
-            ログイン
-        %li.header--contentrigth1
-          = link_to new_user_registration_path, class: "header--contentrigth1" do
-            新規会員登録
-      
-      
-​
+      %li.header--contentrigth1 
+        = link_to signup_new_items_path, class: "login" do
+          ログイン
+      %li.header--contentrigth1 
+        = link_to new_user_items_path, class: "usernew" do
+          新規会員登録

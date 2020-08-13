@@ -1,0 +1,34 @@
+= stylesheet_link_tag 'usernew/signup1', media: 'all'
+.top
+  .form
+    = image_tag "logo/logo.png", class: :top__image
+    .form_box
+      .form__text
+        %label.textlabel(for="file")アカウントをお持ちでない方はこちら
+      .new
+        = link_to new_user_items_path, class: "newbtn" do
+          新規会員登録
+        -# %button.newbtn{type: :button}
+        -#   新規会員登録
+      -# 本来ならここにGOOGLE等でのログイン機能が入る
+      .form_text
+        %input.input-text{name: :password, placeholder: :"メールアドレス", autocomplete: "off", type: :text}/
+      .form_text1
+        %input.input-text{name: :password, placeholder: :"パスワード", autocomplete: "off", type: :text}/
+      .login
+        %button.loginbtn{type: :button}
+          ログイン
+      .forget
+        =link_to "#", class: "forgetlink" do
+          パスワードをお忘れの方
+    .bottomlink
+      =link_to "#", class: "privacy" do
+        プライバシーポリシー
+      =link_to "#", class: "service" do
+        利用規約
+      =link_to "#", class: "notation" do
+        特定商取引に関する表記
+    .bottom
+      = image_tag "logo/logo.png", class: :bottomlogo
+    %p.logotext ©️ FURIMA
+    
