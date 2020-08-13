@@ -1,0 +1,182 @@
+.top {
+  background-color: #f8f8f8;
+  text-align: center;
+  &__image {
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 40px;
+  }
+  .form {
+    &__text {
+      display: flex;
+      padding-bottom: 8px;
+      justify-content: center;
+      .textlabel {
+        font-weight: 600;
+        font-size: 16px;
+      }
+      .textimage {
+        padding-left: 20px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        background: #ea352d;
+      }
+    
+  }
+  .selectprefecture {
+    height: 50px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 380px;
+    text-align: center;
+  }
+  
+    .input-text {
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: 380px;
+    }
+    &__text1 {
+      padding-top: 10px;
+    }
+  }
+}
+.textlabel {
+  font-weight: 600;
+  font-size: 16px;
+}
+.textimage {
+  padding-left: 20px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background: #ea352d;
+}
+.infotext {
+  color: #888;
+  padding-top: 8px;
+}
+.passcheck {
+  margin-top: 10px;
+}
+.usercheck {
+  &__toptext {
+    font-size: 22px;
+    padding-top: 20px;
+  }
+}
+.form_text2-1 {
+  .input-text2 {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 180px;
+  }
+}
+.form_text3-1 {
+  .selectyear {
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 120px;
+  }
+}
+.bottomtext {
+  color:#888;
+  padding-top: 8px;
+}
+.next {
+  padding-top: 40px;
+  padding-bottom: 70px;
+  .nextbtn {
+    width: 430px;
+    font-size: 14px;
+    text-align: center;
+    height: 60px;
+    background-color: #3ccace;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer
+  }
+}
+.english {
+  padding: 20px;
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.bottomlink {
+  padding-top: 80px;
+  font-size: 14px;
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.textlabel {
+  padding-right: 290px;
+}
+.textimage {
+  position: relative;
+  right: 290px;
+}
+.form_text {
+  padding-top: 20px;
+}
+.bottomlink {
+  font-size: 14px;
+}
+.box {
+  margin-top: 40px;
+  width: 60%;
+  margin: 0 auto;
+  background: #fff;
+}

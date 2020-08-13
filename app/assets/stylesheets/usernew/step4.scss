@@ -1,0 +1,82 @@
+.top {
+  height: 100vh;
+  background-color: #f3f3f3;
+  text-align: center;
+  .box {
+    background-color: #ffffff;
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  &__image {
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 40px;
+  }
+}
+
+.next {
+  padding-top: 40px;
+  .nextbtn {
+    width: 430px;
+    font-size: 14px;
+    text-align: center;
+    height: 60px;
+    background-color: #3ccace;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    cursor: pointer
+  }
+}
+.english {
+  padding: 20px;
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.selectprefecture {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 380px;
+}
+.bottomlink {
+  padding-top: 80px;
+  font-size: 14px;
+}
+.bottomtext {
+  color: #333;
+  font-size: 20px;
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 10px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 10px;
+  text-decoration: none;
+}

@@ -1,0 +1,118 @@
+= render partial: "toppage/header"
+
+%nav.breadCrumbs
+  %ul.categories
+    %li.categories__list
+      =link_to "FURIMA", "#"
+    %li.categories__list
+      %i.fa.fa-angle-right
+    %li.categories__list 
+      =link_to "カテゴリー1", "#"
+    %li.categories__list
+      %i.fa.fa-angle-right
+    %li.categories__list
+      =link_to "カテゴリー2", "#"
+    %li.categories__list
+      %i.fa.fa-angle-right
+    %li.categories__list
+      =link_to "カテゴリー3", "#"
+    %li.categories__list
+      %i.fa.fa-angle-right
+    %li.categories__list-bold 商品名
+
+.detail
+  .main
+    .topContent
+      .itemBox
+        %h2.itemBox__name 商品名
+        .itemBox__body
+          %ul
+            %li
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+              %ul
+                %li
+                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+        .itemBox__price
+          %span ¥10000
+          .itemBox__price-detail
+            %span (税込)
+            %span 送料込み
+        .itemBox__itemDetail テストテストテストテストテストテストテスト
+        .itemBox__table
+          %table
+            %tbody
+              %tr
+                %th 出品者
+                %td あああ
+              %tr
+                %th カテゴリー
+                %td
+                  = link_to "カテゴリー1", "#"
+                  %br
+                  = link_to "カテゴリー2", "#"
+                  %br
+                  = link_to "カテゴリー3", "#"
+                  %br
+              %tr
+                %th ブランド
+                %td
+              %tr
+                %th 商品の状態
+                %td 新品/未使用
+              %tr
+                %th 配送料の負担
+                %td 送料込み(出品者負担)
+              %tr
+                %th 発送元の地域
+                %td
+                  = link_to "北海道", "#"
+              %tr
+                %th 発送日の目安
+                %td 1-2日で発送
+        .itemBox__optionalArea
+          %ul.itemBox__optionalArea__favorite
+            %li 
+              %i.fa.fa-star お気に入り 1
+          %ul.itemBox__optionalArea__report
+            %li
+              = link_to "#" do
+                %i.fa.fa-flag 不適切な商品の通報
+      .commentBox
+        = form_with url: "#" do |form|
+          = form.text_area :comment
+        %p
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br 不快な言葉遣いなどは利用制限や退会処分になることがあります。
+        %button{type: "submit"}
+          %i.fa.fa-comment コメントする
+    %ul.links
+      %li.links__before
+        = link_to "#" do
+          %i.fa.fa-angle-left
+          %span
+          前の商品
+      %li.links__after
+        = link_to "#" do
+          後ろの商品
+          %span
+          %i.fa.fa-angle-right
+
+    .relatedItems
+      = link_to "カテゴリー1をもっと見る", "#"
+      .productLists
+        .productList
+          = link_to '#' do
+            %figure.productList--img
+              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+            .productList--body
+              %h3.name product1
+              .details
+                %ul
+                  %li 10000円
+                  %li
+                    %i.fa.fa-star.likeIcon
+                    1
+                %p (税込)
+
+
+= render partial: "toppage/footer"

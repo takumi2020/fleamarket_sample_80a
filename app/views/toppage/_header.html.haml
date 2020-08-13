@@ -12,6 +12,9 @@
       %li.header--contentleft1 カテゴリー
       %li.header--contentleft1 ブランド
     %ul.header--contentrigth
-      %li.header--contentrigth1 ログイン
-      %li.header--contentrigth1 新規会員登録
-​
+      %li.header--contentrigth1 
+        = link_to signup_new_items_path, class: "login" do
+          ログイン
+      %li.header--contentrigth1 
+        = link_to new_user_items_path, class: "usernew" do
+          新規会員登録
