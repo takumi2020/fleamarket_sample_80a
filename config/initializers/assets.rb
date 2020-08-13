@@ -13,7 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( usernew/step1.css )
-Rails.application.config.assets.precompile += %w( usernew/step2.css )
+Rails.application.config.assets.precompile += %w( usernew/new_telephone.css )
 Rails.application.config.assets.precompile += %w( usernew/step3.css )
 Rails.application.config.assets.precompile += %w( usernew/step4.css )
 Rails.application.config.assets.precompile += %w( usernew/signup1.css )

@@ -9,8 +9,10 @@
       %br/
       会員登録が完了しました。
     .next
-      %button.nextbtn{type: :button}
-        フリマをはじめる
+      = link_to root_path, class: "nextbtn" do
+        フリマを始める
+      -# %button.nextbtn{type: :button}
+      -#   フリマをはじめる
   .bottomlink
     =link_to "#", class: "privacy" do
       プライバシーポリシー

@@ -6,8 +6,10 @@
       .form__text
         %label.textlabel(for="file")アカウントをお持ちでない方はこちら
       .new
-        %button.newbtn{type: :button}
+        = link_to new_user_items_path, class: "newbtn" do
           新規会員登録
+        -# %button.newbtn{type: :button}
+        -#   新規会員登録
       -# 本来ならここにGOOGLE等でのログイン機能が入る
       .form_text
         %input.input-text{name: :password, placeholder: :"メールアドレス", autocomplete: "off", type: :text}/

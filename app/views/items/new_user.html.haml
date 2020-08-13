@@ -109,8 +109,10 @@
         %br/
         修正するにはお時間を頂く場合があります。
       .next
-        %button.nextbtn{type: :button}
+        = link_to new_telephone_items_path, class: "nextbtn" do
           次へ進む
+        -# %button.nextbtn{type: :button}
+        -#   次へ進む
       .info
         =link_to "#", class: "userinfo" do 
           本人情報の登録について

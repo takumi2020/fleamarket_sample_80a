@@ -14,12 +14,12 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items do
     collection do
-      get "step1"
-      get "step2"
-      get "step3"
-      get "step4"
-      get "signup1"
-      get "signup2"
+      get "new_user"
+      get "new_telephone"
+      get "new_address"
+      get "user_done"
+      get "signup_new"
+      get "signup_done"
     end
   end
   

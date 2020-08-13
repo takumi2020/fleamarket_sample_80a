@@ -1,4 +1,4 @@
-= stylesheet_link_tag 'usernew/step2', media: 'all'
+= stylesheet_link_tag 'usernew/new_telephone', media: 'all'
 .top
   = image_tag "logo/logo.png", class: :top__image
   .box
@@ -13,7 +13,9 @@
       %br/
       サービス)を利用して認証を行います。
     .sms
-      %button.smsbtn{type: :button}
+      = link_to new_address_items_path, class: "smsbtn" do
+        送信する
+      -# %button.smsbtn{type: :button}
         SMSを送信する
     %p.bottomtext
       ※電話番号は本人確認や不正利用防止のために利用し
