@@ -1,0 +1,27 @@
+.Notification {
+  .notice {
+    position: absolute;
+    top: 0;
+    left: 30vw;
+    width: 500px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    background-color: #38AEF0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .alert {
+    position: absolute;
+    top: 0;
+    lleft: 30vw;
+    width: 500px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    background-color: #F35500;
+    color: #fff;
+    text-align: center;
+  }
+}
