@@ -29,12 +29,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-  private
-  def item_params
-    params.require(:item).permit(
-      :name, :detail, :price, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [brand_attributes: [:name]], [item_images_attributes: [:url]]
-      )
-  end
+
 
   def edit
     # @item_image = Item_Image.find(params[:id])
@@ -67,7 +62,6 @@ class ItemsController < ApplicationController
   def set_parents
     @parents = Category.where(ancestry: nil)
   end
-
   private
   def item_params
     params.require(:item).permit(
@@ -75,9 +69,10 @@ class ItemsController < ApplicationController
       )
   end
 
-  private
-  def item_params
-    params.require(:item).permit(:name, :detail, :price, :brand_id, :condition_id, :fee_burden_id, :prefecture_id, :shippng_days)
-  end
+
+  # private
+  # def item_params
+  #   params.require(:item).permit(:name, :detail, :price, :brand_id, :condition_id, :fee_burden_id, :prefecture_id, :shippng_days)
+  # end
 end
 # :size_id,, :shipping_method, :category_id, :order_status, :seller, :buyer
