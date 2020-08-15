@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :show]
   # get "signup", to: "signup#index"
   # resources :signup do
   #   collection do
