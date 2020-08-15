@@ -1,0 +1,23 @@
+= stylesheet_link_tag "usershow", :media => "all"
+= stylesheet_link_tag "items", :media => "all"
+= render partial: "toppage/header"
+= render partial: "users/side"
+.mypage-a
+  .mypage-contents
+    .main-p
+      .profile-form
+        .profile-header
+          %h1 プロフィール変更
+        .profile-detail
+          = form_for @user, url:profile_update_user_path(current_user), method: :patch ,html:{class:"personal-input-form" } do |form|
+            .profile-name
+              .profile-name-detail
+                .profile-name__img
+                  = image_tag "https://static.mercdn.net/images/member_photo_noimage_thumb.png", height: "50", width: "50", class: "user-img"
+                  .profile-name__form
+                    = form.text_field :nickname
+            .profile-message
+              = form.text_area :introduce, class:'text-introduction',placeholder:"例）こんにちは!! ご覧いただきありがとうございます！" 
+            .form-group
+              = form.submit "変更する", class: "btn-default btn-red"
+= render partial: "toppage/footer"

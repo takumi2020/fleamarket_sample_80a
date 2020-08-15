@@ -1,7 +1,8 @@
 .header
   .header--main
     .header--main-logo
-      = image_tag 'logo/logo.png', class: "header--main-img"
+      = link_to root_path do
+        = image_tag 'logo/logo.png', class: "header--main-img"
     .header--main__form
       = form_with url: root_path(class: 'header--main__form') do |form|
         = form.text_field :keyword, placeholder: "キーワードから探す", class: "header--main__form-text", autocomplete: "off"
@@ -14,18 +15,14 @@
     %ul.header--contentrigth
       - if user_signed_in?
         %li.mypage
-          = link_to '#', class: "mypage_btn" do
+          = link_to user_path(current_user.id), class: "mypage_btn" do
             マイページ
-        %li.logout
-          = link_to destroy_user_session_path,  method: :delete, class: "logout" do
-            ログアウト
       - else
         %li.header--contentrigth1
-          = link_to new_user_session_path, class: "header--contentrigth1" do
-            ログイン
-        %li.header--contentrigth1
-          = link_to new_user_registration_path, class: "header--contentrigth1" do
+          = link_to new_user_registration_path, class: "usernew" do
             新規会員登録
-      
+        %li.header--contentrigth1
+          = link_to new_user_session_path, class: "login" do
+            ログイン
       
 ​
