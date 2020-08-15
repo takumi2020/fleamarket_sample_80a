@@ -12,4 +12,6 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "creditcards", "users"
 end
