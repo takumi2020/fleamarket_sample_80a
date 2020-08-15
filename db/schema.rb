@@ -36,6 +36,46 @@ ActiveRecord::Schema.define(version: 2020_08_12_135913) do
     t.index ["user_id"], name: "index_creditcards_on_user_id"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "url", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.integer "price", null: false
+    t.integer "brand_id"
+    t.integer "condition_id", null: false
+    t.integer "fee_burden_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "size_id", null: false
+    t.integer "shipping_days_id", null: false
+    t.integer "shipping_method_id", null: false
+    t.integer "category_id", null: false
+    t.integer "order_status", null: false
+    t.integer "seller", null: false
+    t.integer "buyer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", null: false
@@ -58,4 +98,5 @@ ActiveRecord::Schema.define(version: 2020_08_12_135913) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "creditcards", "users"
+  add_foreign_key "item_images", "items"
 end

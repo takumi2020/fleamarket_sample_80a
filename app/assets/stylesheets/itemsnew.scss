@@ -199,6 +199,10 @@ textarea:focus {
     color: #fff;
     font-weight: bold;
     border: none;
+    text-decoration: none;
+    .chenge {
+      padding-left: 150px;
+    }
   }
   &-draft{
     width: 360px;
