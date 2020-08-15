@@ -297,7 +297,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_hash
-  ancestry
   bootsnap (>= 1.4.2)
   byebug
   capistrano
