@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -11,16 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
 
   root 'items#index'
-  resources :items do
-    collection do
-      get "new_user"
-      get "new_telephone"
-      get "new_address"
-      get "user_done"
-      get "signup_new"
-      get "signup_done"
-    end
-  end
+  resources :items
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
