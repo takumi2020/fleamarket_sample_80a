@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 2020_08_11_025927) do
     t.text "detail", null: false
     t.integer "price", null: false
     t.integer "brand_id"
-    t.integer "condition", null: false
-    t.integer "fee_burden", null: false
-    t.integer "prefecture", null: false
-    t.integer "size", null: false
-    t.integer "shipping_days", null: false
-    t.integer "shipping_method", null: false
+    t.integer "condition_id", null: false
+    t.integer "fee_burden_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "size_id", null: false
+    t.integer "shipping_days_id", null: false
+    t.integer "shipping_method_id", null: false
     t.integer "category_id", null: false
     t.integer "order_status", null: false
     t.integer "seller", null: false
