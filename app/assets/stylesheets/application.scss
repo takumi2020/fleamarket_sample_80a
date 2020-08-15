@@ -1,12 +1,15 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "items";
-@import "itemnew";
 
 
 .wrapper{
   background-color: #f8f8f8;
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  overflow: scroll;
+}
+.first-main__box{
+  display: flex;
+  flex-direction: column;
 }

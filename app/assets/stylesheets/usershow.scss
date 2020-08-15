@@ -1,0 +1,217 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.Container {
+  background-color: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo',;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto 0;
+  padding: 40px 200px;
+  overflow: scroll;
+}
+
+.MypageNav {
+  margin: 0 40px 0 0;
+  
+  &__list {
+    list-style: none;
+    
+  }
+
+  &__items {
+    list-style: none;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    width: 280px;
+    margin-bottom: 4px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease 0s;
+    
+    a {
+      text-decoration: none;
+      color: #333333;;
+      display: block;
+      font-size: 14px;
+      padding: 16px;
+    }
+  
+  }
+
+  &__header {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+}
+.MypageNav__list :hover {
+  // opacity: 0.6;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.1875em);
+  
+}
+
+.Rightside {
+  width: 700px;
+
+  .Mypage__userIcon {
+    background-color: #3CCACE;
+    height: 200px;
+    text-align: center;
+    padding: 20px;
+
+    .UserIcon {
+      width: 70px;
+      height: 70px;
+      transition: all 0.6s ease 0s;
+      
+    }
+    a :hover {
+      transform: scale(1.3, 1.3);
+    }
+    
+  }
+
+  .Mypage__number {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 0;
+    
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .Mypage__items{
+    margin-left: 10px;
+  }
+}
+.Sell__btn {
+  border-radius: 50%;
+  background-color: #3CCACE;
+  color: #ffffff;
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  position: fixed;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+
+// グラデーション
+  background: linear-gradient(124deg, #22e2b4,#22e27a,#bfe222,#82e222,#22e23a,#22e257,#22e28a,#22e2a7,#22e2c4,#22e2d5,#22c5e2,#229ce2,#227be2,#225be2,#22e2d8,#22e2b1,#22e291,#22e264);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;
+// ここまで
+
+  .Sell__text {
+    margin-top: 32px;
+    display: block;
+  }
+  .Sell__icon {
+    display: block;
+    font-size: 55px;
+  }
+}
+.Sell {
+  transition: all 0.6s ease 0s;
+}
+.Sell :hover {
+  transform: scale(1.2, 1.2);
+}
+
+
+
+// グラデーション
+.Mypage__userIcon {
+  background: linear-gradient(124deg, #c2fd2d,#80fd2d,#2dfd35,#2dfd8d,#2dfdcc,#2dfdee,#2de9fd,#2db8fd,#2da3fd,#2d87fd,#2d87fd,#0098fe,#00d8fe,#00fafe,#00fee4,#00fece,#00feb0);
+background-size: 1800% 1800%;
+
+-webkit-animation: rainbow 18s ease infinite;
+-z-animation: rainbow 18s ease infinite;
+-o-animation: rainbow 18s ease infinite;
+  animation: rainbow 18s ease infinite;}
+
+@-webkit-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+// 遊び部分
+
+
+// .MypageNav__items::after,
+// .MypageNav__items::before,
+// .MypageNav__link::after,
+// .MypageNav__link::before {
+//   background:linear-gradient(#2dfd35,#2dfd8d,#2dfdcc,#2dfdee,#2de9fd,#2db8fd,#2da3fd,#00d8fe,#00fafe,#00fee4);
+//   content: '';
+//   display: block;
+//   position: absolute;
+//   z-index: 10;
+//   transition: all .3s ease;
+//   -webkit-transition: all .3s ease;
+// }
+// /* 左上へ配置 */
+// .MypageNav__items::after {
+//     width: 3px;
+//     height: 2px;
+//     top: -3px;
+//     left: -2px;
+// }
+// /* 右下へ配置 */
+// .MypageNav__items::before {
+//     width: 3px;
+//     height: 2px;
+//     right: 0px;
+//     bottom: 0px;
+// }
+// /* 左下へ配置 */
+// .MypageNav__link::after {
+//     width: 2px;
+//     height: 0px;
+//     left: -2px;
+//     bottom: -2px;
+// }
+// /* 右下へ配置 */
+// .MypageNav__link::before {
+//     width: 2px;
+//     height: 0px;
+//     top: -2px;
+//     right: -2px;
+// }
+
+// /* hover */
+// .MypageNav__items:hover::after,
+// .MypageNav__items:hover::before {
+//   width: 100%;
+//   width: calc(100% + 1px);
+// }
+// .MypageNav__items:hover .MypageNav__link::after,
+// .MypageNav__items:hover .MypageNav__link::before {
+//   height: 100%;
+//   height: calc(100% + 1px);
+// }
