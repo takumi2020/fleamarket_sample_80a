@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create, :create_address, :create_creditcard]
+  # before_action :configure_sign_up_params, only: [:create, :create_address, :create_creditcard]
   # before_action :configure_account_update_params, only: [:update]
 
   def new
@@ -53,18 +53,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
 
   def create_creditcard
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(session["address"])
-    @creditcard = Creditcard.new(creditcard_params)
-    unless @creditcard.valid?
-      flash.now[:alert] = @creditcard.errors.full_messages
-      render :new_credit_card and return
-    end
-    @user.build_address(@address.attributes)
-    @user.build_creditcard(@creditcard.attributes)
-    @user.save
-    session["devise.regist_data"]["user"].clear
-    sign_in(:user, @user)
+    # @user = User.new(session["devise.regist_data"]["user"])
+    # @address = Address.new(session["address"])
+    # @creditcard = Creditcard.new(creditcard_params)
+    # unless @creditcard.valid?
+    #   flash.now[:alert] = @creditcard.errors.full_messages
+    #   render :new_credit_card and return
+    # end
+    # @user.build_address(@address.attributes)
+    # @user.build_creditcard(@creditcard.attributes)
+    # @user.save
+    # session["devise.regist_data"]["user"].clear
+    # sign_in(:user, @user)
   end
 
   def edit_address
