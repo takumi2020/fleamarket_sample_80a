@@ -1,4 +1,4 @@
-class Prefecture < ActiveHash::Base
+class Size < ActiveHash::Base
 
   self.data = [
     {id: 1, name: 'XXS以下'}, {id: 2, name: 'XS(SS)'}, {id: 3, name: 'S'},
@@ -8,6 +8,6 @@ class Prefecture < ActiveHash::Base
   ]
 
   include ActiveHash::Associations
-  has_many :items
+  # has_many :items
 
 end
