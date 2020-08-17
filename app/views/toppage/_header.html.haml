@@ -12,6 +12,20 @@
       %li.header--contentleft1 カテゴリー
       %li.header--contentleft1 ブランド
     %ul.header--contentrigth
-      %li.header--contentrigth1 ログイン
-      %li.header--contentrigth1 新規会員登録
+      - if user_signed_in?
+        %li.mypage
+          = link_to '#', class: "mypage_btn" do
+            マイページ
+        %li.logout
+          = link_to destroy_user_session_path,  method: :delete, class: "logout" do
+            ログアウト
+      - else
+        %li.header--contentrigth1
+          = link_to new_user_session_path, class: "header--contentrigth1" do
+            ログイン
+        %li.header--contentrigth1
+          = link_to new_user_registration_path, class: "header--contentrigth1" do
+            新規会員登録
+      
+      
 ​

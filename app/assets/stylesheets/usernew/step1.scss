@@ -1,0 +1,365 @@
+
+/* ヘッダー大枠 */
+.single-header {
+  height:128px;
+  width: 768px;
+  margin: 0 auto;
+  &__logo{
+    width: 185px;
+    padding: 40px 0 0 0;
+    float: left;
+    &--center{
+      width: 185px;
+      padding: 40px 0 0 0;
+      margin: 0 auto;
+    }
+    &a, img{
+      height: 49px;
+      line-height: 49px;
+    }
+  }
+
+/* ヘッダーナビ */
+/* ヘッダーナビ */
+  &__progress{
+    padding: 40px 0 0 44px;
+    width: 583px;
+    box-sizing: border-box;
+    float: left;
+
+    & ol{
+      list-style: none;
+    }
+
+    &__text{
+      margin: 0 40px 0 0;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      min-width: 40px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+
+      &--active{
+        font-weight: 600;
+        color: #ea352d;
+        margin: 0 40px 0 0;
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        min-width: 40px;
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+  /* ヘッダーのナビ丸 */
+    &__round{
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: #ccc;
+      border-radius: 50%;
+      &--red{
+        background: #ea352d;
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+/* li ナビの棒 */  
+.single-header__progress__round::before {
+right: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 100%;
+height: 2px;
+background: #ccc;
+}
+
+.single-header__progress__round::after, .single-header__progress__round--red::after {
+left: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 100%;
+height: 2px;
+background: #ccc;
+}
+
+.single-header__progress__round--red::before {
+right: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 150%;
+height: 2px;
+background: #ea352d;
+}
+
+.single-header__progress__round--red::after {
+right: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 150%;
+height: 2px;
+background: #ea352d;
+}
+
+
+#long {
+right: 100%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 150%;
+height: 2px;
+background: #ea352d;
+}
+
+#first ::before {
+right: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 100%;
+height: 2px;
+background: #f5f5f5;
+}
+
+#end ::after {
+left: 50%;
+position: absolute;
+bottom: 5px;
+z-index: -1;
+display: block;
+content: '';
+width: 100%;
+height: 2px;
+background: #f5f5f5;
+}
+
+
+// なびここまで
+.top {
+  width: 100vw;
+  height: 1350px;
+  background: #f8f8f8;
+  .box {
+    width: 700px;
+    height: 1150px;
+    background: #fff;
+    margin: 0 auto;
+  }
+  &__image {
+    width: 120px;
+    height: 33px;
+  }
+  &__text {
+    margin-left: 230px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 50px 60px 20px 60px;
+  }
+  .form {
+    height: 100%;
+    width: 380px;
+    margin: 0 auto;
+    .form_box{
+      .textlabel {
+        font-weight: 600;
+        font-size: 16px;
+        margin-left: 30px;
+      }
+      .textimage {
+        padding-left: 20px;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        background: #ea352d;
+      }
+    }
+    .input-text {
+      height: 48px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+      width: 380px;
+    }
+    &__text1 {
+      padding-top: 10px;
+    }
+  }
+}
+.textlabel {
+  font-weight: 600;
+  font-size: 16px;
+}
+.textimage {
+  padding-left: 300px;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  background: #ea352d;
+}
+.infotext {
+  color: #888;
+  padding-top: 8px;
+}
+.passcheck {
+  margin-top: 10px;
+}
+.usercheck {
+  margin-top: 30px;
+  font-size: 18px;
+  &__bottomtext{
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  &__toptext {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+}
+.form_text2-1 {
+  margin-left: 7px;
+  .input-text2 {
+    margin-bottom: 25px;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 180px;
+  }
+}
+.form_text3-1 {
+  padding-left: 7px;
+  select{
+    height: 48px;
+    padding-left: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 18px;
+    width: 80px;
+  }
+}
+
+.bottomtext {
+  color:#888;
+  padding-top: 8px;
+  text-decoration: none;
+}
+.nextbtn {
+  margin-top: 40px;
+  width: 380px;
+  font-size: 14px;
+  // text-align: center;
+  height: 60px;
+  background-color: #3ccace;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.englishbox {
+  width: 345px;
+  background-color: #f8f8f8;
+  display: block;
+  margin: 0 auto;
+  padding: 8px 16px;
+  padding-bottom: 10px;
+  .english {
+    width: 345px;
+    background-color: #f8f8f8;
+    font-size: 12px;
+    color: #888; 
+  }
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 10px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bottomlink {
+  text-decoration: none;
+  padding-top: 70px;
+  font-size: 14px;
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 8px;
+  text-decoration: none;
+}
+.info {
+  padding-top: 45px;
+}
+.link:link,
+.link:visited,
+.link:hover,
+.link:active{
+  color: black;
+  }
+.info {
+  padding-bottom: 20px;
+}
+.text1 {
+}
+.form_text.text2 {
+  padding-top: 20px;
+}
+.userinfo {
+  text-decoration: none;
+}
+// .devise_error{
+//   position: absolute;
+//   width: auto;
+//   height: auto;
+//   top: 0;
+//   left: 30vw;
+// }

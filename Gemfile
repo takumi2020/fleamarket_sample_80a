@@ -67,7 +67,8 @@ gem 'active_hash'
 gem 'ancestry'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'devise'
+gem 'dotenv'
 
 
 # 以下は、本番環境のみ使用

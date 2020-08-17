@@ -1,0 +1,92 @@
+= stylesheet_link_tag 'usernew/step1', media: 'all'
+
+
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      =link_to root_path do
+        = image_tag "logo/logo.png", class: "top__image"
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          お届け先住所入力
+          .single-header__progress__round     
+        %li.single-header__progress__text
+          支払い方法
+          .single-header__progress__round    
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
+.top
+  .box
+    %h2.top__text
+      会員情報入力
+    .form
+      = form_for(@user, url: user_registration_path, class: 'form_box', local: true) do |f|
+        -# = render "devise/shared/error_messages", resource: @user, class: 'devise_error'
+        .form_text.text2
+          = f.label :ニックネーム, {class: 'textlabel'}
+          %span.textimage 必須
+          = f.text_field :nickname, {placeholder: "例) フリマ太郎",class:'input-text'}
+        .form_text.text2
+          = f.label :メールアドレス, {class: 'textlabel'}
+          %span.textimage 必須
+          = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class:'input-text'}
+        .form_text.text2
+          = f.label :パスワード, {class: 'textlabel'}
+          %span.textimage 必須
+          = f.password_field :password,{autocomplete: "new-password",placeholder: "7文字以上の半角英数字",class:'input-text', id:"password"}
+        %p.infotext ※ 英字と数字の両方を含めて設定してください
+        .form-password-revelation-toggle
+          .checkbox-default
+            %input#reveal_password{type: "checkbox",class:"icon-check"}
+            %label{for: "reveal_password"} パスワードを表示する
+        .usercheck
+          %label.usercheck__toptext 本人確認
+          %p.usercheck__bottomtext 
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form_text2.text2
+          = f.label :"お名前(全角)", {class: 'textlabel textlabel2'}
+          %span.textimage 必須
+        .form_text2-1
+          = f.text_field :family_name, {placeholder:"例) 山田",class: 'input-text2'}
+          = f.text_field :last_name, {placeholder:"例) 太郎",class:'input-text2'}
+        .form_text2.text2
+          = f.label :"お名前カナ(全角)", {class: 'textlabel textlabel2'}
+          %span.textimage 必須
+        .form_text2-1
+          = f.text_field :family_name_kana, {placeholder:"例) ヤマダ",class:'input-text2'}
+          = f.text_field :last_name_kana, {placeholder:"例) タロウ",class:'input-text2'}
+        .form_text3.text2
+          = f.label :"生年月日", {class: 'textlabel textlabel2'}
+          %span.textimage 必須
+          %br
+          .form_text3-1
+            = raw sprintf(f.date_select(:birthday, with_css_classes:'XXXXX', prompt:"--", use_month_numbers: true, class: 'date_select', start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+        .form-group
+          %p.bottomtext
+            ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          = f.submit '次へ', class: "nextbtn", url: "address_path"
+        .info
+        =link_to "#", class: "userinfo link" do 
+          本人情報の登録について
+      .englishbox
+        %p.english 
+          This site is protected by reCAPTCHA and the Google Privacy
+          %br/ 
+          Policy and Terms of Service apply.
+          
+  .bottom
+    .bottomlink
+      =link_to "#", class: "privacy link" do
+        プライバシーポリシー
+      =link_to "#", class: "service link" do
+        利用規約
+      =link_to "#", class: "notation link" do
+        特定商取引に関する表記
+      .bottom
+        = image_tag "logo/logo.png", class: :bottomlogo
+        %p.logotext ©️ FURIMA

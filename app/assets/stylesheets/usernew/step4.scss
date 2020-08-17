@@ -1,0 +1,80 @@
+.top {
+  height: 100vh;
+  background-color: #f3f3f3;
+  text-align: center;
+  padding: 30px 0;
+  .box {
+    background-color: #ffffff;
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  &__image {
+    width: 120px;
+    height: 33px;
+    margin: 0 auto
+  }
+  &__text {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 40px;
+  }
+}
+.nextbtn {
+  margin-top: 40px;
+  width: 380px;
+  font-size: 14px;
+  height: 60px;
+  background-color: #3ccace;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  text-align: center;
+  color: #ffffff;
+  
+}
+
+.english {
+  padding: 20px;
+}
+.bottom {
+  .bottomlogo {
+    padding-top: 30px;
+    width: 100px;
+    height: 40px;
+  }
+}
+.logotext {
+  padding-top: 10px;
+}
+.selectprefecture {
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 380px;
+}
+.bottomlink {
+  padding-top: 80px;
+  font-size: 14px;
+}
+.bottomtext {
+  color: #333;
+  font-size: 20px;
+}
+.privacy {
+  text-decoration: none;
+}
+.service {
+  padding-left: 10px;
+  text-decoration: none;
+}
+.notation {
+  padding-left: 10px;
+  text-decoration: none;
+}
