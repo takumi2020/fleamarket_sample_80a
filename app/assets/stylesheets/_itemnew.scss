@@ -90,18 +90,6 @@
     }
   }
 }
-// .upload-label{
-//   width: 630px;
-//   height: 150px;
-//   background-color: #f5f5f5;
-//   border: 1px dashed  #cecece;
-// }
-// .upload-label__text{
-//   font-size: 12px;
-//   position: relative;
-//   top: -100px;
-//   left: 160px;
-// }
 .new{
   height: 2450px;
   display: flex;
@@ -184,7 +172,7 @@
 
 }
 P{
-  margin-top: 15px;
+  // margin-top: 15px;
 }
 
 .pricemain{
@@ -208,11 +196,14 @@ P{
 .inputfield{
   height: 45px;
   width: 630px;
-  margin-bottom: 35px;
+  margin-top: 16px;
   border-radius: 4px;
   border: 1px solid #cccccc;
   &:focus {
     border-color: #34a1da;
+  }
+  &-last{
+    margin-bottom: 35px;
   }
 }
 #inputin{

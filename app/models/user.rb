@@ -18,4 +18,5 @@ class User < ApplicationRecord
   # validates :name, presence: true
   has_one :address
   has_one :creditcard
+  has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 end

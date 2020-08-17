@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  before_action :set_parents, only: [:new, :create]
 
   def index
   end
@@ -21,16 +20,29 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
-  
 
-  def set_parents
-    @parents = Category.where(ancestry: nil)
+def search_child
+  respond_to do |format|
+    format.html
+    format.json do
+      @childrens = Category.find(params[:parent_id]).children
+    end
   end
+end
+
+def search_grandchild
+  respond_to do |format|
+    format.html
+    format.json do
+      @grandchildrens = Category.find(params[:child_id]).children
+    end
+  end
+end
 
   private
   def item_params
     params.require(:item).permit(
-      :name, :detail, :price, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [brand_attributes: [:name]], [item_images_attributes: [:url]]
+      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [brand_attributes: [:name]], [item_images_attributes: [:url]]
       )
   end
   
