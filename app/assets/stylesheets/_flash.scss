@@ -1,12 +1,11 @@
 .Notification {
   .notice {
     position: absolute;
-    top: 0;
-    left: 30vw;
-    width: 500px;
+    top: 100;
+    font-size: 20px;
+    width: 100vw;
     height: auto;
-    line-height: 30px;
-    border-radius: 10px;
+    line-height: 2.5;
     background-color: #38AEF0;
     color: #fff;
     text-align: center;
@@ -14,12 +13,11 @@
 
   .alert {
     position: absolute;
-    top: 0;
-    left: 30vw;
-    width: 500px;
-    height: auto;
-    line-height: 30px;
-    border-radius: 10px;
+    top: 100;
+    font-size: 20px;
+    width: 100vw;
+    height: 50px;
+    line-height: 2.5;
     background-color: #F35500;
     color: #fff;
     text-align: center;

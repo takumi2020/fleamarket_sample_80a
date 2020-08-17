@@ -1,8 +1,11 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :postal_code, :prefecture, :city, :house_number, presence: true
-  # 電話番号追加
+  validates :prefecture, :city, :house_number, presence: true
+  validates :tell, presence: false
+  validates :postal_code, presence: true, format: { with: /\A\d{7}\z/ }  #ハイフンなし7桁
+
+
   enum prefecture:{
     北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
     茨城県:8,栃木県:9,群馬県:10,埼玉県:11,千葉県:12,東京都:13,神奈川県:14,

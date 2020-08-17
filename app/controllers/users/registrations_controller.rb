@@ -22,16 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
 
   def new_address
-    # @user = User.new(session["devise.regist_data"]["user"])
-    # @address = Address.new(address_params)
-    # # # unless @address.valid?
-    # #   flash.now[:alert] = @address.errors.full_messages
-    # #   render :new_address and return
-    # # end
-    # @user.addresses.build(@address.attributes)
-    # @user.save
-    # sign_in(:user, @user)
-    # redirect_to root_path
   end
 
   def create_address
@@ -101,7 +91,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name)
+    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name, :tell)
   end
 
   def creditcard_params
