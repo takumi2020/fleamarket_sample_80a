@@ -1,5 +1,5 @@
 = render partial: "toppage/header"
-
+= stylesheet_link_tag 'items', media: 'all'
 %nav.breadCrumbs
   %ul.categories
     %li.categories__list
@@ -18,26 +18,32 @@
       =link_to "カテゴリー3", "#"
     %li.categories__list
       %i.fa.fa-angle-right
-    %li.categories__list-bold 商品名
+    %li.categories__list-bold
+      = @item.name
 
 .detail
   .main
     .topContent
       .itemBox
-        %h2.itemBox__name 商品名
+        %h2.itemBox__name
+          = @item.name
+        
         .itemBox__body
           %ul
             %li
-              = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+              = image_tag @item.item_images[0].url.url
               %ul
                 %li
-                  = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+                  -# = image_tag @item_image.url
         .itemBox__price
-          %span ¥10000
+          %span
+            = @item.price
           .itemBox__price-detail
             %span (税込)
-            %span 送料込み
-        .itemBox__itemDetail テストテストテストテストテストテストテスト
+            %span
+              = @item.fee_burden.name
+        .itemBox__itemDetail
+          = @item.detail
         .itemBox__table
           %table
             %tbody
@@ -58,17 +64,20 @@
                 %td
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td
+                  = @item.condition.name
               %tr
                 %th 配送料の負担
-                %td 送料込み(出品者負担)
+                %td
+                  = @item.fee_burden.name
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to "北海道", "#"
+                  = link_to @item.prefecture.name, "#"
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td
+                  = @item.shipping_days.name
         .itemBox__optionalArea
           %ul.itemBox__optionalArea__favorite
             %li 
@@ -113,6 +122,10 @@
                     %i.fa.fa-star.likeIcon
                     1
                 %p (税込)
+    .item-show-btn
+      = link_to "商品の編集", edit_item_path(@item),  class: "item-edit-btn"
+      %p or
+      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "item-destroy-btn"
 
 
 = render partial: "toppage/footer"
