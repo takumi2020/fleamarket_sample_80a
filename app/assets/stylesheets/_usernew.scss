@@ -127,9 +127,7 @@
   font-size: 14px;
   border-radius: 4px;
   border: 1px solid transparent;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer
+ 
 }
 .englishbox {
   width: 400px;
@@ -268,21 +266,7 @@
 .sms {
   padding-top: 30px;
 }
-.smsbtn {
-  width: 430px;
-  font-size: 14px;
-  text-align: center;
-  height: 60px;
-  background-color: #3ccace;
-  color: #ffffff;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer
-  
-}
+
 .bottom {
   .bottomlogo {
     padding-top: 40px;
@@ -468,10 +452,6 @@
     color: #ffffff;
     font-size: 14px;
     border-radius: 4px;
-    border: 1px solid transparent;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer
   }
 }
 .english {
@@ -545,10 +525,6 @@
     color: #ffffff;
     font-size: 14px;
     border-radius: 4px;
-    border: 1px solid transparent;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer
   }
 }
 .english {

@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2020_08_11_025927) do
 
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "postal_code", limit: 7, null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.string "tell"
+
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -54,7 +64,8 @@ ActiveRecord::Schema.define(version: 2020_08_11_025927) do
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
-    t.string "email", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
     t.string "last_name", null: false
     t.string "family_name", null: false
     t.string "last_name_kana", null: false
@@ -68,7 +79,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_025927) do
     t.string "building_name", null: false
     t.text "introduce"
     t.string "user_img"
-    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
