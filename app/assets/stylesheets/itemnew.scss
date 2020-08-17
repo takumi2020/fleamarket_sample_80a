@@ -192,7 +192,7 @@ P{
   justify-content: space-between;
   &-price{
     position: relative;
-    right: -14px;
+    right: 9vw;
   }
 }
 .newspan_1{
@@ -232,6 +232,8 @@ textarea:focus {
 .countform{
   margin: 10px -13px 45px 0 ;
   float: right;
+  position: relative;
+  right: 13vw;
   .float-right{
     color: #a5a5a5;
     font-size: 12px;
