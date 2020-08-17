@@ -1,3 +1,3 @@
 $(function(){
-  $(".Notification").fadeOut(5000);
+  $(".Notification").fadeOut(15000);
 });

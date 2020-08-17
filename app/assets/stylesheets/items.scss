@@ -1,7 +1,4 @@
 // hamada ここから
-.wrapper{
-  overflow: hidden;
-}
 
 .header{
   width: auto;
@@ -59,18 +56,38 @@
   }
 }
 .header--contentrigth1{
-  margin:  10px;
+  margin:  10px 30px 5px 0px;
   .login {
+    width: 104px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
     text-decoration: none;
+    padding: 10px 12px;
+    border: 1px solid #0295ee;
+    color: #0295ee;
   }
-  .login:visited {
-    color: black;
+  .login:hover {
+    border: none;
+    border: 1px solid #0295ee;
+    background-color: #0295ee;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.3s ease-out 0s;
   }
   .usernew {
+    width: 104px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 1px solid #3ccace;
+    background-color: #3ccace;
     text-decoration: none;
+    color: #fff;
   }
-  .usernew:visited {
-    color: black;
+  .usernew:hover {
+    
   }
 }
 .header--contentleft1{
@@ -107,7 +124,13 @@
   } 
 }
 
-
+.mypage_btn{
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-right: 60px;
+  color: #000;  
+}
 .header--main__form__serach{
   position: relative;
   top: 0px;
@@ -556,6 +579,8 @@ form{
     margin-bottom: 5px;
   }
 }
+
+// 山崎さんここから
 
 .breadCrumbs{
   width: 100%;

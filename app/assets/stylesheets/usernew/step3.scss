@@ -1,5 +1,7 @@
 /* ヘッダー大枠 */
 .single-header {
+  position: relative;
+  left: 7vw;
   height:128px;
   width: 768px;
   margin: 0 auto;
@@ -163,9 +165,6 @@
   align-items: center;
   background-color: #f8f8f8;
   &__image {
-    width: 120px;
-    height: 33px;
-    margin: 0 auto
   }
   &__text {
     font-size: 22px;
@@ -311,7 +310,6 @@
   .bottomlogo {
     padding-top: 30px;
     width: 100px;
-    height: 40px;
   }
 }
 .logotext {
