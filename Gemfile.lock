@@ -113,6 +113,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.6)
     erubi (1.9.0)
     erubis (2.7.0)
     ffi (1.13.1)
@@ -216,11 +217,11 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
-    ruby-vips (2.0.17)
-      ffi (~> 1.9)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    ruby-vips (2.0.17)
+      ffi (~> 1.9)
     ruby_dep (1.5.0)
     ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
@@ -309,6 +310,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+  dotenv
   font-awesome-sass
   haml-rails (>= 1.0, <= 2.0.1)
   jbuilder (~> 2.7)
