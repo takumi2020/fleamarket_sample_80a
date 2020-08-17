@@ -6,7 +6,7 @@
     %nav.MypageNav
       %ul.MypageNav__list
         %li.MypageNav__items
-          = link_to "マイページ","#", class: "MypageNav__link" 
+          = link_to "マイページ", user_path(current_user.id), class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "お知らせ","#", class: "MypageNav__link" 
         %li.MypageNav__items
@@ -36,24 +36,26 @@
         設定
       %ul.MypageNav__list
         %li.MypageNav__items
-          = link_to "プロフィール","#", class: "MypageNav__link" 
+          = link_to "プロフィール", profile_user_path, class: "MypageNav__link" 
         %li.MypageNav__items
-          = link_to "発送元・お届け先住所変更","#", class: "MypageNav__link" 
+          = link_to "発送元・お届け先住所変更", address_user_path, class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "支払い方法","#", class: "MypageNav__link" 
         %li.MypageNav__items
-          = link_to "メール/パスワード","#", class: "MypageNav__link" 
+          = link_to "メール/パスワード", '#', class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "本人情報","#", class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "電話番号の確認","#", class: "MypageNav__link" 
         %li.MypageNav__items
-          = link_to "ログアウト","#", class: "MypageNav__link" 
+          = link_to "ログアウト", logout_user_path, class: "MypageNav__link" 
+          
   .Rightside
     .Mypage__userIcon
       = link_to "#" do
         =image_tag "icon/member_photo_noimage_thumb.png", class: "UserIcon"
-      %h2 Name
+      %h2
+        -# =@user.nickname
       .Mypage__number
         .Mypage__evaluation
           評価

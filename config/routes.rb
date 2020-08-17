@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -9,7 +8,18 @@ Rails.application.routes.draw do
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]do
+    member do
+      get 'profile'
+      patch 'profile_update'
+      get 'logout'
+      get 'address'
+      patch 'address_update'
+    end
+    collection do
+      get 'ready'
+    end
+  end
 
   root 'items#index'
   resources :items do

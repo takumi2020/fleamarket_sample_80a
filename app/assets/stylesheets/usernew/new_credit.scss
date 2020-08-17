@@ -7,7 +7,9 @@
 
 /* ヘッダー大枠 */
 .single-header {
-  height:128px;
+  position: relative;
+  left: 7vw;
+  height:160px;
   width: 768px;
   margin: 0 auto;
   &__logo{
@@ -386,9 +388,6 @@
   line-height: 48px;
   font-size: 14px;
   border: 1px solid transparent;
-  -webkit-transition: all ease-out .3s;
-  transition: all ease-out .3s;
-  cursor: pointer;
   text-align: center;
   border-radius: 4px;
 }
@@ -502,7 +501,6 @@
   .bottomlogo {
     padding-top: 30px;
     width: 100px;
-    height: 40px;
   }
 }
 .logotext {
@@ -523,8 +521,6 @@
   padding-left: 8px;
   text-decoration: none;
 }
-
-
 .bottomlink {
   text-align: center;
   font-size: 14px;
