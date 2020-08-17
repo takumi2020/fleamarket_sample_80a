@@ -621,6 +621,19 @@ form{
       .itemBox{
         background-color: #fff;
         padding: 24px 40px 40px;
+        .itemShowBtn{
+          text-align: right;
+          margin-right: 30px;
+          &__content{
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            background-color: #3CCACE;
+            border: 5px solid #3CCACE;
+            color: #fff;;
+            border-radius: 5px;
+          }
+        }
         &__name{
           text-align: center;
           font-weight: bold;

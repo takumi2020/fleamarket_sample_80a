@@ -27,14 +27,17 @@
       .itemBox
         %h2.itemBox__name
           = @item.name
-        
+        .itemShowBtn
+          = link_to "編集", "#",  class: "itemShowBtn__content"
+          = link_to "削除", "#", class: "itemShowBtn__content"
         .itemBox__body
-          %ul
-            %li
-              = image_tag @item.item_images[0].url.url
-              %ul
-                %li
-                  -# = image_tag @item_image.url
+          - @item.item_images.each do |image|
+            %ul
+              %li
+                = image_tag image.url.url
+                -# %ul
+                -#   %li
+                -#     = image_tag image.url.url
         .itemBox__price
           %span
             = @item.price
@@ -122,10 +125,6 @@
                     %i.fa.fa-star.likeIcon
                     1
                 %p (税込)
-    .item-show-btn
-      = link_to "商品の編集", edit_item_path(@item),  class: "item-edit-btn"
-      %p or
-      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "item-destroy-btn"
 
 
 = render partial: "toppage/footer"
