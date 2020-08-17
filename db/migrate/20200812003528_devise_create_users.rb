@@ -5,19 +5,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     create_table :users do |t|
       ## Database authenticatable
       t.string :nickname, null: false
-      t.string :email, null: false, unique: true
+      t.string :email, null: false, unique: true, default: ""
+      t.string :encrypted_password, null: false, default: ""
+      #暗号化したパスワード
       t.string :last_name, null: false
       t.string :family_name, null: false
       t.string :last_name_kana, null: false
       t.string :family_name_kana, null: false
-      # t.date :birth_day, null: false, default: 0
       t.date :birthday, null: false
-      # t.string :tell, null: false, unique: true
       t.text :introduce
-      t.string :user_img
-      t.string :encrypted_password, null: false, default: "" 
-      #暗号化したパスワード
-      
+      t.string :user_img      
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

@@ -3,7 +3,7 @@
     %nav.MypageNav
       %ul.MypageNav__list
         %li.MypageNav__items
-          = link_to "マイページ","#", class: "MypageNav__link" 
+          = link_to "マイページ",user_path(current_user.id), class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "お知らせ","#", class: "MypageNav__link" 
         %li.MypageNav__items
@@ -34,11 +34,11 @@
         %li.MypageNav__items
           = link_to "プロフィール", profile_user_path, class: "MypageNav__link" 
         %li.MypageNav__items
-          = link_to "発送元・お届け先住所変更", '#', class: "MypageNav__link" 
+          = link_to "発送元・お届け先住所変更",address_user_path , class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "支払い方法","#", class: "MypageNav__link" 
         %li.MypageNav__items
-          = link_to "メール/パスワード","#", class: "MypageNav__link" 
+          = link_to "メール/パスワード", '#', class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "本人情報","#", class: "MypageNav__link" 
         %li.MypageNav__items

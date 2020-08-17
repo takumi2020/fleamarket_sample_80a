@@ -18,25 +18,42 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  
-  def profile
+
+
+  def address
+    @address = Address.find(params[:id])
   end
 
-  def profile_update
-    if current_user.update(user_params)      
-      redirect_to root_path
+  def address_update
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      flash[:notice] = "内容を更新しました"   
+      redirect_to address_user_path
     else
+      flash.now[:alert] = "編集内容を確認してください"
       render :profile
     end
   end
 
-  def ready
-    # @address = Address.find(params[:id])
+  def profile
+    @user = User.find(params[:id])
   end
 
+  def profile_update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = "内容を更新しました"   
+      redirect_to profile_user_path
+    else
+      flash.now[:alert] = "編集内容を確認してください"
+      render :profile
+    end
+  end
+
+  
   private
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name)
+    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name, :tell)
   end
 
   def set_user
@@ -51,6 +68,6 @@ class UsersController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
   end
   def user_params
-    params.require(:user).permit(:nickname, :introduce)
+    params.require(:user).permit(:nickname, :email, :last_name, :family_name, :last_name_kana, :family_name_kana, :birthday, :introduce, :user_img)
   end
 end
