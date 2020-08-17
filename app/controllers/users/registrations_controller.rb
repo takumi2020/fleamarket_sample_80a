@@ -17,11 +17,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # この記述でもOKです。session["devise.regist_data"] [user]= @user.attributes
     session["devise.regist_data"][:user]["password"] = params[:user][:password]
     @address = @user.build_address
-    render :new_address
+    redirect_to addresses_path
   end
 
 
   def new_address
+    @address = Address.new
   end
 
   def create_address
@@ -34,11 +35,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     session["address"] = @address.attributes
     @creditcard = @user.build_creditcard
-    render :new_creditcard
+    redirect_to creditcards_path
   end
 
 
   def new_creditcard
+    @creditcard = Creditcard.new
   end
   
 
