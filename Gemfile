@@ -69,6 +69,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
 gem 'dotenv'
+gem 'active_hash'
 
 
 # 以下は、本番環境のみ使用
