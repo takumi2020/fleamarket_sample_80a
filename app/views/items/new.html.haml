@@ -41,28 +41,27 @@
           .select--wrap{id: "category__box--parent"}
           %p= f.collection_select :category_id, Category.all.limit(13), :id, :name, {prompt: "選択してください"}, class: 'select1 inputfield', id: "parent_form", required: 'required'
         = label :%, 'サイズ', class: 'newlabel' 
-        %span.newspan 必須
-        %p= f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, class: 'select2 inputfield', required: 'required'
-        = f.fields_for :brand do |brand|
-          = label :%, 'ブランド', class: 'newlabel' 
-          %span.newspan_1 任意
-          %p= brand.text_field :name, placeholder: '例)  Apple', class: 'inputfield'
+        %span.newspan_1 任意
+        %p= f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, class: 'select2 inputfield'
+        = label :%, 'ブランド', class: 'newlabel' 
+        %span.newspan_1 任意
+        %p= f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, class: 'select3 inputfield'
         = label :%, '商品の状態', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, class: 'select3 inputfield', required: 'required'
+        %p= f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, class: 'select4 inputfield', required: 'required'
         %section.newdetail.newMain-BoxtoLine2 配送について
         = label :%, '配送料の負担', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :fee_burden_id, FeeBurden.all, :id, :name, {prompt:"選択してください"}, class: 'select4 inputfield', required: 'required'
+        %p= f.collection_select :fee_burden_id, FeeBurden.all, :id, :name, {prompt:"選択してください"}, class: 'select5 inputfield', required: 'required'
         = label :%, '配送の方法', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt:"選択してください"}, class: 'select5 inputfield', required: 'required'
+        %p= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt:"選択してください"}, class: 'select6 inputfield', required: 'required'
         = label :%, '発送元の地域', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, class: 'select6 inputfield', required: 'required'
+        %p= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, class: 'select7 inputfield', required: 'required'
         = label :%, '発送までの日数', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, class: 'select7 inputfield', required: 'required'
+        %p= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, class: 'select8 inputfield', required: 'required'
         %section.newdetail.newMain-BoxtoLine2 価格 (¥100〜9,999,999)
         .pricemain
           .pricemain-left
