@@ -763,6 +763,23 @@ form{
             }
           }
         }
+        .purchaseScreen{
+          width: 100%;
+          text-align: center;
+          margin-top: 20px;
+          .purchaseButton{
+            display: inline-block;
+            width: 60%;
+            line-height: 48px;
+            text-decoration: none;
+            background-color: #3CCACE;
+            color: #fff;
+            font-size: 18px;
+            border: 1px solid transparent;
+            border-radius: 100px;
+            font-weight: 900;
+          }
+        }
       }
       .commentBox{
         padding: 24px;

@@ -23,6 +23,9 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items do
+    member do
+      get 'done'
+    end
     resources :comments, only: :create
   end
   end
