@@ -90,13 +90,25 @@
               = link_to "#" do
                 %i.fa.fa-flag 不適切な商品の通報
       .commentBox
-        = form_with url: "#" do |form|
-          = form.text_area :comment
-        %p
+        .commentList
+          - if @comments
+            - @comments.each do |comment|
+              %p.showComments
+                %strong
+                  = link_to comment.user.nickname, "/users/#{comment.user_id}", class:"showComments__userName"
+                  ：
+                = comment.text
+        %p.notice
           相手のことを考え丁寧なコメントを心がけましょう。
           %br 不快な言葉遣いなどは利用制限や退会処分になることがあります。
-        %button{type: "submit"}
-          %i.fa.fa-comment コメントする
+        - if current_user
+          = form_with(model: [@item, @comment], local: true, class: "commentForm") do |form|
+            = form.text_area :text, rows: "4", class: "textForm"
+            %button{type: "submit", class: "commentSubmit"}
+              %i.fa.fa-comment コメントする
+        - else
+          %strong
+            %p ※ コメントの投稿には新規登録/ログインが必要です ※
     %ul.links
       %li.links__before
         = link_to "#" do
@@ -128,3 +140,9 @@
 
 
 = render partial: "toppage/footer"
+
+= link_to '#' do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    .purchaseBtn__icon
+      =image_tag "/assets/icon/icon_camera.png", width: '80px'
