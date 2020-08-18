@@ -17,4 +17,6 @@ class Item < ApplicationRecord
   validates_associated :item_images
   validates :item_images, presence: true
 
+  has_many :comments
+
 end
