@@ -30,14 +30,13 @@
         .itemShowBtn
           = link_to "編集", "#",  class: "itemShowBtn__content"
           = link_to "削除", "#", class: "itemShowBtn__content"
-        .itemBox__body
+        .thumbNail
+          = image_tag @item.item_images[0].url.url, class: "thumbNail__content"
+        .imageList
           - @item.item_images.each do |image|
             %ul
               %li
-                = image_tag image.url.url
-                -# %ul
-                -#   %li
-                -#     = image_tag image.url.url
+                = image_tag image.url.url, class: "imageList__content"
         .itemBox__price
           %span
             = @item.price

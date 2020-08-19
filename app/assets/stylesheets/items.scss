@@ -642,39 +642,22 @@ form{
           font-weight: bold;
           font-size: 24px;
         }
-        &__body{
-          margin: 16px 0 0;
-          ul {
-            display: flex;
-            position: relative;
-            li {
-              display: flex;
-              flex-direction: column;
-              width: 560px;
-              justify-content: center;
-              margin: 0 auto;
-              img {
-                object-fit: cover;
-                height: 346px;
-                width: 100%;
-                vertical-align: bottom;
-              }
-              ul {
-                display: flex;
-                justify-content: center;
-                margin-top: 10px;
-                li {
-                  width: 25%;
-                  margin: 0 10px 0 0;
-                  img {
-                    object-fit: cover;
-                    height: 87px;
-                    width: 100%;
-                    vertical-align: bottom;
-                  }
-                }
-              }
-            }
+        .thumbNail{
+          width: 620px;
+          height: 400px;
+          margin-top: 16px;
+          text-align: center;
+          &__content{
+            width: 90%;
+            height: 100%;
+          }
+        }
+        .imageList{
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+          &__content{
+            margin: 0 5px;
           }
         }
         &__price{
