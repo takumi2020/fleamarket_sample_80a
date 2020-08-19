@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_parents, only: [:new, :create]
 
+  def itemindex
+    @items = Item.all
+  end
+
   def index
   end
 
