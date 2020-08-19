@@ -21,4 +21,5 @@ class User < ApplicationRecord
   has_one :creditcard
 
   has_many :comments
+  has_many :items
 end
