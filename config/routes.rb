@@ -8,6 +8,18 @@ Rails.application.routes.draw do
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
+
+  root 'items#index'
+
+  resources :cards, only: [:pay]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
   resources :users, only: [:show, :edit, :update]do
     member do
       get 'profile'
@@ -15,12 +27,13 @@ Rails.application.routes.draw do
       get 'logout'
       get 'address'
       patch 'address_update'
+      get 'new_credit'
+      post 'new_credit'
     end
     collection do
       get 'ready'
     end
   end
 
-  root 'items#index'
   resources :items
-  end
+end

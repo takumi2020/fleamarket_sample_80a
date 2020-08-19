@@ -39,7 +39,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'faker'
   gem 'rails-controller-testing'
 end
@@ -72,9 +71,9 @@ gem 'ancestry'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'devise'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'active_hash'
-
+gem 'payjp'
 
 # 以下は、本番環境のみ使用
 group :production do

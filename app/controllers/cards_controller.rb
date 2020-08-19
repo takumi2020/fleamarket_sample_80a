@@ -1,0 +1,64 @@
+class CardsController < ApplicationController
+  # before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout]
+
+  require 'payjp'
+
+  def new
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
+  end
+
+  def pay
+    Payjp.api_key = 'sk_test_1041f55ce576b3affe9b0dd7'
+    if params['payjp_token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create(
+      description: '登録テスト0817', #なくてもOK
+      email: current_user.email, #なくてもOK
+      card: params['payjp_token'],
+      metadata: {user_id: current_user.id}
+      ) #念の為metadataにuser_idを入れましたがなくてもOK
+      @card = Card.new(                  # カードテーブルのデータの作成
+        user_id: current_user.id,        # ここでcurrent_user.idがいるので、前もってsigninさせておく
+        customer_id: customer.id,        # customerは上で定義
+        card_id: customer.default_card  # .default_cardを使うことで、customer定義時に紐付けされたカード情報を引っ張ってくる ここがnullなら上のcustomerのcard: params['payjp_token']が読み込めていないことが多い
+      )
+      if @card.save
+        redirect_to action: "show"
+      else
+        redirect_to action: "pay"
+      end
+    end
+  end
+
+  def delete #PayjpとCardデータベースを削除します
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer.delete
+      card.delete
+    end
+      redirect_to action: "new"
+  end
+
+  def show #Cardのデータpayjpに送り情報を取り出します
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  # private
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
+
+end
+
