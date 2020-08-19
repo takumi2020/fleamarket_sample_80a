@@ -87,6 +87,8 @@ $(function(){
 
     //削除時のラベル操作
     var count = $('.preview-box').length;
+
+
     //5個めが消されたらラベルを表示
     if (count == 4) {
       $('.label-content').show();
