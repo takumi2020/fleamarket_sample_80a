@@ -31,6 +31,14 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      address:
+        postal_code: 郵便番号 
+        prefecture_id: 都道府県
+        city: 市町村
+        house_number: 番地
+        building_name: 建物名
+        tell: 電話番号
+
     models:
       user: ユーザ
   devise:

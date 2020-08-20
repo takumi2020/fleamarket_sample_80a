@@ -16,7 +16,7 @@
           .form_text
             = f.label :都道府県
             %span.textimage 必須
-          = f.select :prefecture, Address.prefectures.keys, {}, {class: 'input-text'} 
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'input-text'}
           .form_text
             = f.label :市町村
             %span.textimage 必須
