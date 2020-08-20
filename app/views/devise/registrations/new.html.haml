@@ -24,7 +24,6 @@
       会員情報入力
     .form
       = form_for(@user, url: user_registration_path, class: 'form_box', local: true) do |f|
-        -# = render "devise/shared/error_messages", resource: @user, class: 'devise_error'
         .form_text.text2
           = f.label :nickname, {class: 'textlabel'}
           %span.textimage 必須
