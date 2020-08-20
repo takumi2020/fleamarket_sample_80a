@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @item_image = ItemImage.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def new
@@ -46,6 +47,9 @@ def move_to_index
     redirect_to action: :index
   end
 end
+
+  def done
+  end
 
   private
   def item_params

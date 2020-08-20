@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items do
+    member do
+      get 'done'
+    end
+    resources :comments, only: :create
     collection do
       get 'search_child', defaults: { format: 'json' }
       get 'search_grandchild', defaults: { format: 'json' }

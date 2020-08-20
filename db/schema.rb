@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_15_025927) do
+ActiveRecord::Schema.define(version: 2020_08_17_125251) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "postal_code", limit: 7, null: false
-    t.string "prefecture", null: false
+    t.string "prefecture_id", null: false
     t.string "city", null: false
     t.string "house_number", null: false
     t.string "building_name"
@@ -25,9 +25,23 @@ ActiveRecord::Schema.define(version: 2020_08_15_025927) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "ancestry"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "item_id"
+    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,18 +74,15 @@ ActiveRecord::Schema.define(version: 2020_08_15_025927) do
     t.integer "condition_id", null: false
     t.integer "fee_burden_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "size_id"
+    t.integer "size_id", null: false
     t.integer "shipping_days_id", null: false
     t.integer "shipping_method_id", null: false
-    t.bigint "category_id"
-    t.text "order_status", null: false
+    t.integer "category_id", null: false
+    t.integer "order_status", null: false
     t.integer "seller", null: false
     t.integer "buyer"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -97,6 +108,4 @@ ActiveRecord::Schema.define(version: 2020_08_15_025927) do
   add_foreign_key "addresses", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
 end

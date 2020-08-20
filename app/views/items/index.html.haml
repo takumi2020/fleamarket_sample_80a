@@ -236,6 +236,7 @@
   .purchaseBtn
     %span.purchaseBtn__text 出品する
     .purchaseBtn__icon
-      =image_tag "/assets/icon/icon_camera.png", width: '80px'
+      = link_to new_item_path do
+        =image_tag "/assets/icon/icon_camera.png", width: '80px'
 ​
 // 岩谷ここまで

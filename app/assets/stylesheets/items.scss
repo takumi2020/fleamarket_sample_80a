@@ -616,49 +616,48 @@ form{
     padding: 40px;
     margin: 0 auto;
     width: 700px;
+    i::before{
+      margin-right: 5px;
+    }
     .topContent{
       margin: 0 auto;
       .itemBox{
         background-color: #fff;
         padding: 24px 40px 40px;
+        .itemShowBtn{
+          text-align: right;
+          margin-right: 30px;
+          &__content{
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            background-color: #3CCACE;
+            border: 5px solid #3CCACE;
+            color: #fff;;
+            border-radius: 5px;
+          }
+        }
         &__name{
           text-align: center;
           font-weight: bold;
           font-size: 24px;
         }
-        &__body{
-          margin: 16px 0 0;
-          ul {
-            display: flex;
-            position: relative;
-            li {
-              display: flex;
-              flex-direction: column;
-              width: 560px;
-              justify-content: center;
-              margin: 0 auto;
-              img {
-                object-fit: cover;
-                height: 346px;
-                width: 100%;
-                vertical-align: bottom;
-              }
-              ul {
-                display: flex;
-                justify-content: center;
-                margin-top: 10px;
-                li {
-                  width: 25%;
-                  margin: 0 10px 0 0;
-                  img {
-                    object-fit: cover;
-                    height: 87px;
-                    width: 100%;
-                    vertical-align: bottom;
-                  }
-                }
-              }
-            }
+        .thumbNail{
+          width: 620px;
+          height: 400px;
+          margin-top: 16px;
+          text-align: center;
+          &__content{
+            width: 90%;
+            height: 100%;
+          }
+        }
+        .imageList{
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+          &__content{
+            margin: 0 5px;
           }
         }
         &__price{
@@ -747,35 +746,76 @@ form{
             }
           }
         }
+        .purchaseScreen{
+          width: 100%;
+          text-align: center;
+          margin-top: 20px;
+          .purchaseButton{
+            display: inline-block;
+            width: 60%;
+            line-height: 48px;
+            text-decoration: none;
+            background-color: #3CCACE;
+            color: #fff;
+            font-size: 18px;
+            border: 1px solid transparent;
+            border-radius: 100px;
+            font-weight: 900;
+          }
+        }
       }
       .commentBox{
         padding: 24px;
         background-color: #fff;
         margin: 10px 0;
         text-align: center;
-        form {
-          textarea {
+        .showComments{
+          height: 48px;
+          line-height: 48px;
+          background-color: #f8f8f8;
+          text-align: left;
+          border: 5px solid #f8f8f8;
+          border-radius: 100px;
+          margin: 20px 0;
+          &__userName{
+            text-decoration: none;
+            color: black;
+            margin-left: 20px;
+          }
+        }
+        .notice{
+          padding: 8px;
+          font-size: 14px;
+          font-weight: 500;
+          background-color: #3CCACE;
+          color: #fff;
+          margin: 40px 0 10px 0;
+          text-align: left;
+        }
+        .commentForm{
+          flex-direction: column;
+          form {
+          }
+          .textForm {
             width: 100%;
             min-height: 104px;
             padding: 10px;
+            border: 1px solid #aaa;
           }
-        }
-        p {
-          padding: 8px;
-          font-size: 14px;
-          background-color: #f8f8f8;
-          margin: 10px 0;
-          text-align: left;
-        }
-        button {
-          line-height: 48px;
-          background-color: #3CCACE;
-          border: 1px solid #3CCACE;
-          color: #fff;
-          width: 60%;
-          font-size: 18px;
-          border-radius: 100px;
-          margin-top: 10px;
+          button {
+            line-height: 48px;
+            background-color: #3CCACE;
+            border: 1px solid #3CCACE;
+            color: #fff;
+            width: 60%;
+            font-size: 18px;
+            border-radius: 100px;
+            margin-top: 24px;
+            .fa-comment{
+              height: 48px;
+              line-height: 48px;
+            }
+          }
         }
       }
     }
