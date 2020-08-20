@@ -27,9 +27,10 @@
       .itemBox
         %h2.itemBox__name
           = @item.name
-        .itemShowBtn
-          = link_to "編集", "#",  class: "itemShowBtn__content"
-          = link_to "削除", "#", class: "itemShowBtn__content"
+        - if user_signed_in? && current_user.id == @item.user_id
+          .itemShowBtn
+            = link_to "編集", "#",  class: "itemShowBtn__content"
+            = link_to "削除", "#", class: "itemShowBtn__content"
         .thumbNail
           = image_tag @item.item_images[0].url.url, class: "thumbNail__content"
         .imageList
@@ -88,8 +89,10 @@
             %li
               = link_to "#" do
                 %i.fa.fa-flag 不適切な商品の通報
-        .purchaseScreen
-          = link_to "購入画面に進む", "#", class:"purchaseButton"
+        - if user_signed_in? && current_user.id == @item.user_id
+        - else
+          .purchaseScreen
+            = link_to "購入画面に進む", "#", class:"purchaseButton"
       .commentBox
         .commentList
           - if @comments
