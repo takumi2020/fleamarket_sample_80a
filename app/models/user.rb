@@ -17,6 +17,7 @@ class User < ApplicationRecord
   
 
   # validates :name, presence: true
+  has_one :cards
   has_one :address
   has_one :creditcard
 

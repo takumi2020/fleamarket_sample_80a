@@ -2,6 +2,7 @@
 
 .single-container{
   background-color: #F5F5F5;
+  height: 100vh;
   width: 76px;
 }
 
@@ -167,9 +168,10 @@
 /* メイン全体 */
 .single-main{
   // height: calc(100% - 378px);
+  height: 100vh;
   width: 100vw;
   &__container{
-    height: auto;
+    height: 100vh;
     width: 700px;
     margin: 0 auto;
     background-color: #ffffff;
@@ -540,4 +542,60 @@
   }
 .label{
   margin-top: 5px;
+}
+
+.signup__card--list {
+  display: flex;
+  margin-top: 8px;
+  
+  #icon--visa {
+    width: px;
+    height: 20px;
+    margin: 0 0 0 8px;
+    }
+
+    #icon--master {
+      width: 34px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+
+    #icon--saison {
+      width: 30px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+
+    #icon--jcb {
+      width: 32px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+
+    #icon--americanexpress {
+      width: 21px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+
+    #icon--diners {
+      width: 32px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+
+    #icon--discover {
+      width: 32px;
+      height: 20px;
+      margin: 0 0 0 8px;
+    }
+}
+
+// クレジット
+#cardNew{
+  position: absolute;
+  top:170;
+  right: 200;
+
+  
 }

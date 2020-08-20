@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:show, :destroy]
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @grandchildren = @item.category
@@ -35,6 +35,25 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def search_child
+    respond_to do |format|
+      format.html
+      format.json do
+        @childrens = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def search_grandchild
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildrens = Category.find(params[:child_id]).children
+      end
+    end
+  end
+
   def set_caegory_for_new_create
     @category_parent_array = ["選択してください"] + Category.where(ancestry: nil).first(13).pluck(:name)
   end
@@ -49,6 +68,14 @@ class ItemsController < ApplicationController
   def done
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :show
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(
@@ -58,6 +85,9 @@ class ItemsController < ApplicationController
 
   def edit
     # @item_image = Item_Image.find(params[:id])
+　end
+  def set_item
+
     @item = Item.find(params[:id])
   end
   
