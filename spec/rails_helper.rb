@@ -36,6 +36,7 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
+
   config.include FactoryBot::Syntax::Methods #FactoryBotもinclude
   #  Deviseのバージョンが4.1.2以上の時は以下のようにします。
   config.include Devise::Test::ControllerHelpers, :type => :controller
