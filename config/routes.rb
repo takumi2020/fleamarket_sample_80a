@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     end
     resources :comments, only: :create
     collection do
-      get 'search_child', defaults: { format: 'json' }
-      get 'search_grandchild', defaults: { format: 'json' }
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
   
