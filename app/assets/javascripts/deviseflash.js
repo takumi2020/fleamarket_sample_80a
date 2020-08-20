@@ -1,3 +1,4 @@
-$(function(){
-  $(".Notification").fadeOut(15000);
+$(function () {
+  if (document.URL.match(/users/)) {
+    $(".Notification").fadeOut(15000)}; 
 });
