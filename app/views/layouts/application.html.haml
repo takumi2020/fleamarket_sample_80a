@@ -2,8 +2,9 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample80a
-    = csrf_meta_tags
+    %script{src: "https://js.pay.jp/v2/pay.js"}
     = csp_meta_tag
+    = csrf_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application'
   %body

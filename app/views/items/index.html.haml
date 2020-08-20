@@ -224,10 +224,10 @@
     .inner__icon
       = link_to '#' do
         .linkIcon.aBtn
-          = image_tag "/assets/app-store.png"
+          = image_tag "app-store.png"
       = link_to '#' do
         .linkIcon.gBtn
-          = image_tag "/assets/google-play.png"
+          = image_tag "google-play.png"
 
 = render partial: "toppage/footer"
 ​
@@ -236,7 +236,6 @@
   .purchaseBtn
     %span.purchaseBtn__text 出品する
     .purchaseBtn__icon
-      = link_to new_item_path do
-        =image_tag "/assets/icon/icon_camera.png", width: '80px'
+      =image_tag "icon/icon_camera.png", width: '80px'
 ​
 // 岩谷ここまで
