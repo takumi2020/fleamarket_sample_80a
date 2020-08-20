@@ -2,6 +2,12 @@ ja:
   activerecord:
     attributes:
       user:
+        nickname: ニックネーム
+        family_name: お名前(全角)
+        last_name: お名前(全角)
+        family_name_kana: お名前カナ(全角)
+        last_name_kana: お名前カナ(全角)
+        birthday: 誕生日
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -9,7 +15,7 @@ ja:
         current_password: 現在のパスワード
         current_sign_in_at: 現在のログイン時刻
         current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
+        email: メールアドレス
         encrypted_password: 暗号化パスワード
         failed_attempts: 失敗したログイン試行回数
         last_sign_in_at: 最終ログイン時刻
@@ -25,6 +31,14 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      address:
+        postal_code: 郵便番号 
+        prefecture_id: 都道府県
+        city: 市町村
+        house_number: 番地
+        building_name: 建物名
+        tell: 電話番号
+
     models:
       user: ユーザ
   devise:

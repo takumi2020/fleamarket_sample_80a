@@ -107,20 +107,21 @@
 }
 .new {
   padding-top: 20px;
-  .newbtn {
-    width: 430px;
-    font-size: 14px;
-    text-align: center;
-    height: 60px;
-    border: 1px solid #0099e8;
-    background: #0099e8;
-    color: #ffffff;
-    font-size: 14px;
-    border-radius: 4px;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer
-  }
+}
+
+.newbtn {
+  margin-bottom: 50px;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  width: 380px;
+  line-height: 3.5;
+  text-align: center;
+  height: 60px;
+  border: none;
+  background: #0099e8;
+  color: #ffffff;
+  border-radius: 4px;
 }
 .english {
   padding: 20px;
@@ -152,6 +153,7 @@
   padding-top: 40px;
 }
 .form_text {
+  border-top: 1px solid #e8e8e8;
   padding-top: 40px;
 }
 .form_text1 {
@@ -160,25 +162,23 @@
 .login {
   padding-top: 40px;
   .loginbtn {
-    width: 430px;
-    font-size: 14px;
+    width: 380px;
+    font-size: 18px;
     text-align: center;
     height: 60px;
     border: none;
     background: #3ccace;
     color: #ffffff;
-    font-size: 14px;
     border-radius: 4px;
-    -webkit-transition: all ease-out .3s;
-    transition: all ease-out .3s;
-    cursor: pointer
+    margin-bottom: 10px;
   }
 }
 .forget {
-  padding-top: 60px;
-  text-align: left;
-  padding-left: 15px;
-  padding-bottom: 15px;
+  position: relative;
+  right: -90;
+  padding-top: 50px;
+  padding-left: 70px;
+  // padding-bottom: 10px;
 }
 // #3ccace フリマカラー
 .form_box {
@@ -188,6 +188,7 @@
   background: #fff;
 }
 .form {
+  height: 100vh;
   background-color: #f8f8f8;
 }
 .bottomlink {
@@ -204,6 +205,18 @@
     text-decoration: none;
   }
 }
-.forgetlink {
+.forgetlink,
+.forgetlink:visited, {
+  color: black;
   text-decoration: none;
+}
+
+.link:link,
+.link:visited,
+.link:hover,
+.link:active{
+  color: black;
+  }
+.label{
+  margin-top: 5px;
 }

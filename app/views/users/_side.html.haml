@@ -1,0 +1,47 @@
+.Container
+  .lefside
+    %nav.MypageNav
+      %ul.MypageNav__list
+        %li.MypageNav__items
+          = link_to "マイページ",user_path(current_user.id), class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "お知らせ","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "いいね！一覧","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "出品する","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "出品した商品 - 出品中","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "出品した商品 - 取引中","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "出品した商品 - 売却済み","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "購入した商品 - 取引中","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "購入した商品 - 過去の取引","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "ニュース一覧","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "評価一覧","#", class: "MypageNav__link" 
+        -# %li.MypageNav__items
+        -#   = link_to "ガイド","#", class: "MypageNav__link" 
+        -# %li.MypageNav__items
+        -#   = link_to "お問い合わせ","#", class: "MypageNav__link" 
+      %h3.MypageNav__header
+        設定
+      %ul.MypageNav__list
+        %li.MypageNav__items
+          = link_to "プロフィール", profile_user_path, class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "発送元・お届け先住所変更",address_user_path , class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "支払い方法","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "メール/パスワード", '#', class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "本人情報","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "電話番号の確認","#", class: "MypageNav__link" 
+        %li.MypageNav__items
+          = link_to "ログアウト", logout_user_path, class: "MypageNav__link" 
