@@ -76,94 +76,90 @@ $(function(){
 });
 
 $(function() {
-  function appendOption(category) {
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+  function appendOption(category){
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
-
-  function appendChildrenBox(insertHTML) {
+  function appendChildrenBox(insertHTML){
     var childSelectHtml = '';
-    childSelectHtml = `
-                       <div class='select--wrap' id= 'category__box--children'>
-                         <select class="inputfield" id="child_form" name="category_id">
-                           <option value="---" data-category="---">選択してください</option>
-                           ${insertHTML}
-                         </select>
-                       </div>
-                      `;
-    $('.product-details__form__category').append(childSelectHtml);
+    childSelectHtml = `<div class='listing-select-wrapper__added' id= 'children_wrapper'>
+                        <div class='listing-select-wrapper__box'>
+                          <select class="inputfield" id="child_category" name="item[category_id]">
+                            <option value="---" data-category="---">選択してください</option>
+                            ${insertHTML}
+                          <select>
+                        </div>
+                      </div>`;
+    $('.listing-product-detail__category').append(childSelectHtml);
   }
-
-  function appendGrandchildrenBox(insertHTML) {
+  function appendGrandchildrenBox(insertHTML){
     var grandchildSelectHtml = '';
-    grandchildSelectHtml = `
-                            <div class='select--wrap' id= 'category__box--grandchildren'>
-                              <select class="inputfield inputfield-last" id="grandchild_form" name="category_id">
-                                <option value="---" data-category="---">選択してください</option>
-                                ${insertHTML}
-                              </select>
-                            </div>
-                           `;
-    $('.product-details__form__category').append(grandchildSelectHtml);
+    grandchildSelectHtml = `<div class='listing-select-wrapper__added' id= 'grandchildren_wrapper'>
+                              <div class='listing-select-wrapper__box'>
+                                <select class="inputfield inputfield-last" id="grandchild_category" name="item[category_id]">
+                                  <option value="---" data-category="---">選択してください</option>
+                                  ${insertHTML}
+                                </select>
+                              </div>
+                            </div>`;
+    $('.listing-product-detail__category').append(grandchildSelectHtml);
   }
 
-  $("#parent_form").on("change", function() {
-    var parentValue = document.getElementById("parent_form").value;
-    if (parentValue != "選択してください") {
-      $('#category__box--children').remove();
-      $('#category__box--grandchildren').remove();
+  $("#parent_category").on('change', function(){
+    var parentCategory = document.getElementById('parent_category').value;
+    if (parentCategory != "選択してください"){
       $.ajax({
-        url     : '/items/search_child',
-        type    : 'GET',
-        data    : {
-          parent_id: parentValue
-        },
+        url: '/items/get_category_children',
+        type: 'GET',
+        data: { parent_name: parentCategory },
         dataType: 'json'
       })
-
-      .done(function(children) {
-        $('#category__box--children').remove();
-        $('#category__box--grandchildren').remove();
+      .done(function(children){
+        $('#children_wrapper').remove();
+        $('#grandchildren_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
         appendChildrenBox(insertHTML);
       })
-      .fail(function() {
-        alert('カテゴリーを入力して下さい');
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
       })
-    } else {
-      $('#category__box--children').remove();
-      $('#category__box--grandchildren').remove();
+    }else{
+      $('#children_wrapper').remove();
+      $('#grandchildren_wrapper').remove();
     }
   });
 
-  $(".product-details__form__category").on("change", "#child_form", function() {
-    var childValue = $('#child_form option:selected').data('category');
-    if (childValue != "選択してください") {
+  $('.listing-product-detail__category').on('change', '#child_category', function(){
+    var childId = $('#child_category option:selected').data('category');
+    if (childId != "選択してください"){
       $.ajax({
-        url     : '/items/search_grandchild',
-        type    : 'GET',
-        data    : {
-          child_id: childValue
-        },
+        url: '/items/get_category_grandchildren',
+        type: 'GET',
+        data: { child_id: childId },
         dataType: 'json'
       })
-
-      .done(function(grandchildren) {
-        var insertHTML = '';
-        grandchildren.forEach(function(grandchild){
-          insertHTML += appendOption(grandchild);
-        });
-        appendGrandchildrenBox(insertHTML);
+      .done(function(grandchildren){
+        if(grandchildren.length != 0) {
+          $('#grandchildren_wrapper').remove();
+          $('#size_wrapper').remove();
+          $('#brand_wrapper').remove();
+          var insertHTML = '';
+          grandchildren.forEach(function(grandchild){
+            insertHTML += appendOption(grandchild);
+          });
+          appendGrandchildrenBox(insertHTML);
+        }
       })
-      .fail(function() {
-        alert('カテゴリーを入力して下さい');
+      .fail(function(){
+        alert('カテゴリー取得に失敗しました');
       })
-    } else {
-      $('#category__box--children').remove();
-      $('#category__box--grandchildren').remove();
+    }else{
+      $('#grandchildren_wrapper').remove();
+      // $('#size_wrapper').remove();
+      // $('#brand_wrapper').remove();
     }
   });
 });
