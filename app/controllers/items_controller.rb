@@ -39,23 +39,6 @@ class ItemsController < ApplicationController
     @category_parent_array = ["選択してください"] + Category.where(ancestry: nil).first(13).pluck(:name)
   end
 
-  # def search_child
-  #   respond_to do |format|
-  #     format.html
-  #     format.json do
-  #       @childrens = Category.find(params[:parent_id]).children
-  #     end
-  #   end
-  # end
-
-  # def search_grandchild
-  #   respond_to do |format|
-  #     format.html
-  #     format.json do
-  #       @grandchildrens = Category.find(params[:child_id]).children
-  #     end
-  #   end
-  # end
 
   def move_to_index
     unless user_signed_in?

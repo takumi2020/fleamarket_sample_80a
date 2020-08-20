@@ -158,8 +158,6 @@ $(function() {
       })
     }else{
       $('#grandchildren_wrapper').remove();
-      // $('#size_wrapper').remove();
-      // $('#brand_wrapper').remove();
     }
   });
 });
