@@ -8,9 +8,6 @@ Rails.application.routes.draw do
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
-
-  root 'items#index'
-
   resources :cards, only: [:pay]
   resources :cards, only: [:new, :show] do
     collection do
