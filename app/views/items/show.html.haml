@@ -65,8 +65,11 @@
                   %br
               %tr
                 %th ブランド
-                %td
-                  = @item.brand.name
+                - if @item.brand.blank?
+                  %td
+                - else
+                  %td
+                    = @item.brand.name
               %tr
                 %th 商品の状態
                 %td
