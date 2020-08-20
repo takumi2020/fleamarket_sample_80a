@@ -7,15 +7,15 @@
     %li.categories__list
       %i.fa.fa-angle-right
     %li.categories__list 
-      =link_to "カテゴリー1", "#"
+      = link_to @children.parent.name, "#"
     %li.categories__list
       %i.fa.fa-angle-right
     %li.categories__list
-      =link_to "カテゴリー2", "#"
+      = link_to @children.name, "#"
     %li.categories__list
       %i.fa.fa-angle-right
     %li.categories__list
-      =link_to "カテゴリー3", "#"
+      = link_to @grandchildren.name, "#"
     %li.categories__list
       %i.fa.fa-angle-right
     %li.categories__list-bold
@@ -52,19 +52,21 @@
             %tbody
               %tr
                 %th 出品者
-                %td あああ
+                %td
+                  = @item.user.nickname
               %tr
                 %th カテゴリー
                 %td
-                  = link_to "カテゴリー1", "#"
+                  = link_to @children.parent.name, "#"
                   %br
-                  = link_to "カテゴリー2", "#"
+                  = link_to @children.name, "#"
                   %br
-                  = link_to "カテゴリー3", "#"
+                  = link_to @grandchildren.name, "#"
                   %br
               %tr
                 %th ブランド
                 %td
+                  = @item.brand.name
               %tr
                 %th 商品の状態
                 %td
