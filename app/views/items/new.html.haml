@@ -28,32 +28,40 @@
         -# limit 40 ?? option追加
         = label :%, '商品の詳細',class: 'newlabel'
         %span.newspan 必須
-        %p= f.text_area :detail, size: "75x7", placeholder: "商品の説明（必須 1,000文字以内） \n（色、素材、重さ、定価、注意点など）\n\n例）1900年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。\nあわせやすいのでおすすめです。", autocomplete: "off", maxlength: '1000', id: 'inputin', class: 'countup'
+        %p= f.text_area :detail, size: "75x7", placeholder: "商品の説明（必須 1,000文字以内） \n（色、素材、重さ、定価、注意点など）\n\n例）1900年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。\nあわせやすいのでおすすめです。", autocomplete: "off", maxlength: '1000', required: 'required', id: 'inputin', class: 'countup'
         .countform
           %span.count1000.float-right 0
           %span.count.float-right /1000
         .clear
         %section.newdetail.newMain-BoxtoLine2 商品の詳細
-        -# = label :%, 'カテゴリー',class: 'newlabel'
-        -# %span.newspan 必須
-        -# %p= f.collection_select :category_id, @parents, :id, :name, {prompt: "選択してください"}, class: 'select1 inputfield', id: "category-form", required: "required"
-        = f.fields_for :brand do |brand|
-          = label :%, 'ブランド', class: 'newlabel' 
-          %span.newspan_1 任意
-          %p= brand.text_field :name, placeholder: '例)  Apple', class: 'inputfield'
+        .product-details__form__category
+          = label :%, 'カテゴリー',class: 'newlabel'
+          %span.newspan 必須
+        .form-input-select
+          %p= f.select :category_id, @category_parent_array, {}, {class: 'select1 inputfield', id: 'parent_category'}
+        .listing-product-detail__category
+        = label :%, 'サイズ', class: 'newlabel' 
+        %span.newspan_1 任意
+        %p= f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, class: 'select2 inputfield'
+        = f.label 'ブランド', class: 'newlabel' 
+        %span.newspan_1 任意
+        %p= f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, class: 'select3 inputfield'
         = label :%, '商品の状態', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, {class: 'select2 inputfield'}
+        %p= f.collection_select :condition_id, Condition.all, :id, :name, {prompt:"選択してください"}, class: 'select4 inputfield', required: 'required'
         %section.newdetail.newMain-BoxtoLine2 配送について
         = label :%, '配送料の負担', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :fee_burden_id, FeeBurden.all, :id, :name, {prompt:"選択してください"}, {class: 'select3 inputfield'}
+        %p= f.collection_select :fee_burden_id, FeeBurden.all, :id, :name, {prompt:"選択してください"}, class: 'select5 inputfield', required: 'required'
+        = label :%, '配送の方法', class: 'newlabel' 
+        %span.newspan 必須
+        %p= f.collection_select :shipping_method_id, ShippingMethod.all, :id, :name, {prompt:"選択してください"}, class: 'select6 inputfield', required: 'required'
         = label :%, '発送元の地域', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, {class: 'select4 inputfield'}
+        %p= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt:"選択してください"}, class: 'select7 inputfield', required: 'required'
         = label :%, '発送までの日数', class: 'newlabel' 
         %span.newspan 必須
-        %p= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, {class: 'select2 inputfield'}
+        %p= f.collection_select :shipping_days_id, ShippingDays.all, :id, :name, {prompt:"選択してください"}, class: 'select8 inputfield', required: 'required'
         %section.newdetail.newMain-BoxtoLine2 価格 (¥100〜9,999,999)
         .pricemain
           .pricemain-left
@@ -61,7 +69,7 @@
             %span.newspan 必須
           .pricemain-price
             ¥
-            = f.text_field :price, placeholder: '0', class: '', autocomplete: "off", id: 'pricein'
+            = f.text_field :price, placeholder: '0', class: '', autocomplete: "off", id: 'pricein', required: 'required'
         -# %p.newpirce2 販売手数料
         -# %p.newpirce3 販売利益
         .newbtn  

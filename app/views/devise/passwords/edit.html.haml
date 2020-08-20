@@ -1,0 +1,97 @@
+%h2 Change your password
+= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  = f.hidden_field :reset_password_token
+  .field
+    = f.label :password, "New password"
+    %br/
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+      %br/
+    = f.password_field :password, autofocus: true, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation, "Confirm new password"
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Change my password"
+
+
+
+
+-# = stylesheet_link_tag "usershow", :media => "all"
+-# = stylesheet_link_tag "items", :media => "all"
+-# = render partial: "toppage/header"
+-# .Container
+-#   .lefside
+-#     %nav.MypageNav
+-#       %ul.MypageNav__list
+-#         %li.MypageNav__items
+-#           = link_to "マイページ", user_path(current_user.id), class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "お知らせ","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "いいね！一覧","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "出品する","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "出品した商品 - 出品中","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "出品した商品 - 取引中","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "出品した商品 - 売却済み","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "購入した商品 - 取引中","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "購入した商品 - 過去の取引","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "ニュース一覧","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "評価一覧","#", class: "MypageNav__link" 
+-#         -# %li.MypageNav__items
+-#         -#   = link_to "ガイド","#", class: "MypageNav__link" 
+-#         -# %li.MypageNav__items
+-#         -#   = link_to "お問い合わせ","#", class: "MypageNav__link" 
+     
+-#       %h3.MypageNav__header
+-#         設定
+-#       %ul.MypageNav__list
+-#         %li.MypageNav__items
+-#           = link_to "プロフィール", profile_user_path, class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "発送元・お届け先住所変更", address_user_path, class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "支払い方法","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "メール/パスワード","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "本人情報","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "電話番号の確認","#", class: "MypageNav__link" 
+-#         %li.MypageNav__items
+-#           = link_to "ログアウト", logout_user_path, class: "MypageNav__link" 
+          
+-#   .Rightside
+-#     .Mypage__userIcon
+-#       = link_to "#" do
+-#         =image_tag "icon/member_photo_noimage_thumb.png", class: "UserIcon"
+-#       %h2
+-#         =@user.nickname
+-#       .Mypage__number
+-#         .Mypage__evaluation
+-#           評価
+-#           %span
+-#             174
+-#         .Mypage__items
+-#           出品数
+-#           %span
+-#             100
+-#     .Mypage__container
+-#       %ul.Mypage__tabs
+-#         %li.Mypage__tab
+  
+-#   = link_to "#", class: "Sell__btn" do
+-#     %h2.Sell__text 出品
+-#     = icon('fas', 'camera', class: "Sell__icon")
+-# = render partial: "toppage/footer"

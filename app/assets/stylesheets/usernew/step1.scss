@@ -1,6 +1,7 @@
-
 /* ヘッダー大枠 */
 .single-header {
+  position: relative;
+  left: 7vw;
   height:128px;
   width: 768px;
   margin: 0 auto;
@@ -19,7 +20,6 @@
     }
   }
 
-/* ヘッダーナビ */
 /* ヘッダーナビ */
   &__progress{
     padding: 40px 0 0 44px;
@@ -117,7 +117,6 @@ display: block;
 content: '';
 width: 150%;
 height: 2px;
-background: #ea352d;
 }
 
 
@@ -161,17 +160,13 @@ background: #f5f5f5;
 // なびここまで
 .top {
   width: 100vw;
-  height: 1350px;
+  height: 1250px;
   background: #f8f8f8;
   .box {
     width: 700px;
-    height: 1150px;
+    height: 1250px;
     background: #fff;
     margin: 0 auto;
-  }
-  &__image {
-    width: 120px;
-    height: 33px;
   }
   &__text {
     margin-left: 230px;
@@ -248,6 +243,8 @@ background: #f5f5f5;
   }
 }
 .form_text2-1 {
+  display: flex;
+  justify-content: space-around;
   margin-left: 7px;
   .input-text2 {
     margin-bottom: 25px;
@@ -262,6 +259,7 @@ background: #f5f5f5;
   }
 }
 .form_text3-1 {
+  // width: 380px;
   padding-left: 7px;
   select{
     height: 48px;
@@ -271,7 +269,7 @@ background: #f5f5f5;
     background: #fff;
     line-height: 1.5;
     font-size: 18px;
-    width: 80px;
+    width: 70px;
   }
 }
 
@@ -284,8 +282,8 @@ background: #f5f5f5;
   margin-top: 40px;
   width: 380px;
   font-size: 14px;
-  // text-align: center;
   height: 60px;
+  border: none;
   background-color: #3ccace;
   color: #ffffff;
   font-size: 14px;
@@ -309,7 +307,6 @@ background: #f5f5f5;
   .bottomlogo {
     padding-top: 10px;
     width: 100px;
-    height: 40px;
   }
 }
 .logotext {
@@ -356,10 +353,9 @@ background: #f5f5f5;
 .userinfo {
   text-decoration: none;
 }
-// .devise_error{
-//   position: absolute;
-//   width: auto;
-//   height: auto;
-//   top: 0;
-//   left: 30vw;
-// }
+
+.mypage_btn{
+  color: #000;
+  text-decoration: none;
+
+}

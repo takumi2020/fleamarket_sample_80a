@@ -1,6 +1,24 @@
 = stylesheet_link_tag 'usernew/step4', media: 'all'
+.single-container
+  %header.single-header
+    %h1.single-header__logo
+      =link_to root_path do
+        = image_tag "logo/logo.png", class: "top__image"
+    %nav.single-header__progress
+      %ol
+        %li.single-header__progress__text--active{ id: "first" }
+          会員情報
+          .single-header__progress__round--red
+        %li.single-header__progress__text
+          お届け先住所入力
+          .single-header__progress__round     
+        %li.single-header__progress__text
+          支払い方法
+          .single-header__progress__round    
+        %li.single-header__progress__text{ id: "end" }
+          完了
+          .single-header__progress__round
 .top
-  = image_tag "logo/logo.png", class: :top__image
   .box
     %h2.top__text
       会員登録完了
@@ -13,12 +31,12 @@
         = link_to root_path, class: "nextbtn" do
           フリマを始める
   .bottomlink
-    =link_to "#", class: "privacy" do
+    =link_to "#", class: "privacy link" do
       プライバシーポリシー
-    =link_to "#", class: "service" do
+    =link_to "#", class: "service link" do
       利用規約
-    =link_to "#", class: "notation" do
+    =link_to "#", class: "notation link" do
       特定商取引に関する表記
   .bottom
-    = image_tag "logo/logo.png", class: :bottomlogo
+    = image_tag "logo/logo.png", class: 'bottomlogo'
   %p.logotext ©️ FURIMA

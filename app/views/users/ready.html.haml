@@ -1,0 +1,40 @@
+= stylesheet_link_tag "usershow", :media => "all"
+= stylesheet_link_tag "items", :media => "all"
+= render partial: "toppage/header"
+= render partial: "users/side"
+
+-# .top
+-#   .box
+-#     .form
+-#       %h2.top__text
+-#         住所入力
+-#       .form__frame
+-#         =form_with(@address, url: '#', method: :post) do |f|
+-#           =render "devise/shared/error_messages", resource: @address
+-#           .form_text
+-#             = f.label :郵便番号 
+-#             %span.textimage 必須
+-#           = f.text_field :postal_code,{autofocus: true, placeholder: "例）123-4567", class: 'input-text'}
+-#           .form_text
+-#             = f.label :都道府県
+-#             %span.textimage 必須
+-#           = f.select :prefecture, Address.prefectures.keys, {}, {class: 'input-text'} 
+-#           .form_text
+-#             = f.label :市町村
+-#             %span.textimage 必須
+-#           = f.text_field :city, autofocus: true, placeholder: "例）横浜市緑区", class: 'input-text'
+-#           .form_text
+-#             = f.label :番地
+-#             %span.textimage 必須
+-#           = f.text_field :house_number, autofocus: true, placeholder: "例）青山1-1-1", class: 'input-text'
+-#           .form_text
+-#             = f.label :建物名
+-#             %span.form-group__optional 任意
+-#           = f.text_field :building_name, autofocus: true, placeholder: "例）筋肉塾ビル315", class: 'input-text'
+-#           .form_text
+-#             = f.label :電話番号
+-#             %span.form-group__optional 任意
+-#           = f.text_field :building_name, autofocus: true, placeholder: "例）09012345678", class: 'input-text'
+-#           .next
+-#             = f.submit '次へ', class: "nextbtn", url: "creditcard_path"
+= render partial: "toppage/footer"
