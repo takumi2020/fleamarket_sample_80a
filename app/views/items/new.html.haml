@@ -39,12 +39,13 @@
         .product-details__form__category
           = label :%, 'カテゴリー',class: 'newlabel'
           %span.newspan 必須
-          .select--wrap{id: "category__box--parent"}
-          %p= f.collection_select :category_id, Category.all.limit(13), :id, :name, {prompt: "選択してください"}, class: 'select1 inputfield', id: "parent_form", required: 'required'
+        .form-input-select
+          %p= f.select :category_id, @category_parent_array, {}, {class: 'select1 inputfield', id: 'parent_category'}
+        .listing-product-detail__category
         = label :%, 'サイズ', class: 'newlabel' 
         %span.newspan_1 任意
         %p= f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, class: 'select2 inputfield'
-        = label :%, 'ブランド', class: 'newlabel' 
+        = f.label 'ブランド', class: 'newlabel' 
         %span.newspan_1 任意
         %p= f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, class: 'select3 inputfield'
         = label :%, '商品の状態', class: 'newlabel' 
