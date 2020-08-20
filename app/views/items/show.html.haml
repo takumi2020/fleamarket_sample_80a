@@ -27,14 +27,17 @@
       .itemBox
         %h2.itemBox__name
           = @item.name
-        
-        .itemBox__body
-          %ul
-            %li
-              = image_tag @item.item_images[0].url.url
-              %ul
-                %li
-                  -# = image_tag @item_image.url
+        - if user_signed_in? && current_user.id == @item.user_id
+          .itemShowBtn
+            = link_to "編集", "#",  class: "itemShowBtn__content"
+            = link_to "削除", "#", class: "itemShowBtn__content"
+        .thumbNail
+          = image_tag @item.item_images[0].url.url, class: "thumbNail__content"
+        .imageList
+          - @item.item_images.each do |image|
+            %ul
+              %li
+                = image_tag image.url.url, class: "imageList__content"
         .itemBox__price
           %span
             = @item.price
@@ -86,14 +89,30 @@
             %li
               = link_to "#" do
                 %i.fa.fa-flag 不適切な商品の通報
+        - if user_signed_in? && current_user.id == @item.user_id
+        - else
+          .purchaseScreen
+            = link_to "購入画面に進む", "#", class:"purchaseButton"
       .commentBox
-        = form_with url: "#" do |form|
-          = form.text_area :comment
-        %p
+        .commentList
+          - if @comments
+            - @comments.each do |comment|
+              %p.showComments
+                %strong
+                  = link_to comment.user.nickname, "/users/#{comment.user_id}", class:"showComments__userName"
+                  ：
+                = comment.text
+        %p.notice
           相手のことを考え丁寧なコメントを心がけましょう。
           %br 不快な言葉遣いなどは利用制限や退会処分になることがあります。
-        %button{type: "submit"}
-          %i.fa.fa-comment コメントする
+        - if current_user
+          = form_with(model: [@item, @comment], local: true, class: "commentForm") do |form|
+            = form.text_area :text, rows: "4", class: "textForm"
+            %button{type: "submit", class: "commentSubmit"}
+              %i.fa.fa-comment コメントする
+        - else
+          %strong
+            %p ※ コメントの投稿には新規登録/ログインが必要です ※
     %ul.links
       %li.links__before
         = link_to "#" do
@@ -122,10 +141,12 @@
                     %i.fa.fa-star.likeIcon
                     1
                 %p (税込)
-    .item-show-btn
-      = link_to "商品の編集", edit_item_path(@item),  class: "item-edit-btn"
-      %p or
-      = link_to "この商品を削除する", item_path(@item), method: :delete, class: "item-destroy-btn"
 
 
 = render partial: "toppage/footer"
+
+= link_to '#' do
+  .purchaseBtn
+    %span.purchaseBtn__text 出品する
+    .purchaseBtn__icon
+      =image_tag "/assets/icon/icon_camera.png", width: '80px'

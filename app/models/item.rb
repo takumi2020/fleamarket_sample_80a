@@ -20,4 +20,6 @@ class Item < ApplicationRecord
   validates :name, :detail, :category, :condition_id, :fee_burden_id, :shipping_method_id, :prefecture_id, :shipping_days_id, :seller, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 100, less_than_or_equal_to: 9999999 }
 
+  has_many :comments
+
 end
