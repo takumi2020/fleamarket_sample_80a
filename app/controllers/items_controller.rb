@@ -24,31 +24,40 @@ class ItemsController < ApplicationController
     end
   end
 
-def search_child
-  respond_to do |format|
-    format.html
-    format.json do
-      @childrens = Category.find(params[:parent_id]).children
+  def search_child
+    respond_to do |format|
+      format.html
+      format.json do
+        @childrens = Category.find(params[:parent_id]).children
+      end
     end
   end
-end
 
-def search_grandchild
-  respond_to do |format|
-    format.html
-    format.json do
-      @grandchildrens = Category.find(params[:child_id]).children
+  def search_grandchild
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildrens = Category.find(params[:child_id]).children
+      end
     end
   end
-end
 
-def move_to_index
-  unless user_signed_in?
-    redirect_to action: :index
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
-end
 
   def done
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :show
+    end
   end
 
   private

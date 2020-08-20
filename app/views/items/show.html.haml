@@ -29,8 +29,8 @@
           = @item.name
         - if user_signed_in? && current_user.id == @item.user_id
           .itemShowBtn
-            = link_to "編集", "#",  class: "itemShowBtn__content"
-            = link_to "削除", "#", class: "itemShowBtn__content"
+            = link_to "編集", "#", class: "itemShowBtn__content"
+            = link_to "削除", item_path(@item.id), method: :delete, class: "itemShowBtn__content"
         .thumbNail
           = image_tag @item.item_images[0].url.url, class: "thumbNail__content"
         .imageList
