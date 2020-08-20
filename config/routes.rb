@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items do
     member do
+      post 'purchase'
+      get 'purchased'
       get 'done'
     end
     resources :comments, only: :create

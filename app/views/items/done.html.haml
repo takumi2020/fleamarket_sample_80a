@@ -3,7 +3,7 @@
 .wrapper__done
   .top
     = link_to "#" do
-      = image_tag "/assets/logo/logo.png", height: "49", width: "185"
+      = image_tag "logo/logo.png", height: "49", width: "185"
   .middle
     .purchaseConfirm
       %section.purchaseConfirm__contents
@@ -11,40 +11,57 @@
       %section.purchaseConfirm__contents
         .item
           .item__img
-            = image_tag "/assets/pict/dumbbell.jpg", height: "80", width: "80"
+            = image_tag @item.item_images[0].url.url, height: "80", width: "80"
           .item__content
-            %p.paragraph ダンベル　2個セット
             %p.paragraph
-              %span 送料込み (税込)
-              %b ¥2,980
+              = @item.name
+            %p.paragraph
+              -# %span 送料込み (税込)
+              -# %b ¥2,980
       %section.purchaseConfirm__contents
         .priceConfirm
           %span.amount 支払い金額
-          %span.price ¥2,980
+          %span.price 
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
       %section.purchaseConfirm__contents
         .paymentOptions
           .paymentOptions__content
             %h3.paymentOption 支払い方法
-            = link_to "変更する ＞", "#", class: "changeButton"
+            -# = link_to "変更する ＞", "#", class: "changeButton"
           .cardInformation
             %p.paragraph クレジットカード
-            %p.paragraph ************0000
+            %p.paragraph
+            = "**** **** **** " + @default_card_information.last4
             %p.paragraph
               有効期限
-              00 / 00
-            = image_tag "/assets/logo/visa.png", height: "14.81", width: "48", class:"visa"
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            = image_tag "logo/visa.png", height: "14.81", width: "48", class:"visa"
       %section.purchaseConfirm__contents
         .shippingAddress
           .shipping
             %h3.shipping__title 配送先
-            = link_to "変更する ＞", "#", class: "changeButton"
+            = link_to "変更する ＞",address_user_path , class: "changeButton"
           .userAddress
-            %p.paragraph 〒000-0000
-            %p.paragraph 大阪府　大阪市　
-            %p.paragraph 筋肉塾
-            %p.paragraph 塾長　岩谷 勇希
+            %p.paragraph 
+              〒
+              = @address.postal_code
+            %p.paragraph.pre 
+              = @address.prefecture.name
+            %span
+              = @address.city
+            %p.paragraph
+              = @address.house_number
+            %p.paragraph.pre
+              = @user.family_name
+            %span
+              = @user.last_name
+              
       %section.purchaseConfirm__contents
-        %button.purchaseButton{type: "button"} 購入する
+        %button.purchaseButton
+          =link_to purchase_item_path, method: :post, class:"purchaseButton" do
+            購入する
   .bottom
     .bottomContents
       %ul.bottomLists

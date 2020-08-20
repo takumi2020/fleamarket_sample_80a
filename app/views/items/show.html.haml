@@ -20,7 +20,6 @@
       %i.fa.fa-angle-right
     %li.categories__list-bold
       = @item.name
-
 .detail
   .main
     .topContent
@@ -40,7 +39,7 @@
                 = image_tag image.url.url, class: "imageList__content"
         .itemBox__price
           %span
-            = @item.price
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
           .itemBox__price-detail
             %span (税込)
             %span
@@ -65,8 +64,12 @@
                   %br
               %tr
                 %th ブランド
-                %td
-                  = @item.brand.name
+                -if @item.brand.blank?
+                  %td
+                - else
+                  %td
+                    = @item.brand.name
+
               %tr
                 %th 商品の状態
                 %td
@@ -93,8 +96,12 @@
                 %i.fa.fa-flag 不適切な商品の通報
         - if user_signed_in? && current_user.id == @item.user_id
         - else
-          .purchaseScreen
-            = link_to "購入画面に進む", "#", class:"purchaseButton"
+          -if @item.order_status == '売切れ'
+            .purchaseScreen
+              = link_to "売切れました", "#", class:"purchaseButton2"
+          - else
+            .purchaseScreen
+              = link_to "購入画面に進む", done_item_path, class:"purchaseButton"
       .commentBox
         .commentList
           - if @comments

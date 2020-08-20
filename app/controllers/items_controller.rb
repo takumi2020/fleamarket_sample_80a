@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  require 'payjp'
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :destroy]
   before_action :set_caegory_for_new_create, only: [:new, :create]
@@ -66,6 +67,19 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @user = User.find(params[:id])
+    @item = Item.find(params[:id])
+    @address = Address.find(params[:id])
+    @grandchildren = @item.category
+    @children = @grandchildren.parent
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      # redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
   end
 
   def destroy
@@ -76,10 +90,26 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.where(user_id: current_user.id).first
+    charge = Payjp::Charge.create(
+      # @item.price
+      amount: @item.price,
+      customer: Payjp::Customer.retrieve(card.customer_id),
+      currency: 'jpy'
+    )
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update( buyer: current_user.id, order_status: "売切れ")
+    redirect_to root_path, alert: '購入致しました'
+  end
+
+
   private
   def item_params
     params.require(:item).permit(
-      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, :brand_id, [item_images_attributes: [:url]]
+      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [item_images_attributes: [:url]]
       ).merge(user_id: current_user.id, seller: current_user.id, order_status: "出品中")
   end
 
