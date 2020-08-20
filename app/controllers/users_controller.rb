@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   
   private
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name, :tell)
+    params.require(:address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :tell)
   end
 
   def set_user
