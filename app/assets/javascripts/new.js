@@ -60,7 +60,6 @@ $(function(){
     setLabel(count);
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     $(`#preview-box__${id}`).remove();
-    console.log("new")
     $(`#item_item_images_attributes_${id}_url`).val("");
 
     var count = $('.preview-box').length;

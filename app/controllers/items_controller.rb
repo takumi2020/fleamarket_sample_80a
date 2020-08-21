@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @grandchildren = @item.category
@@ -35,6 +35,25 @@ class ItemsController < ApplicationController
     end
   end
 
+
+  def search_child
+    respond_to do |format|
+      format.html
+      format.json do
+        @childrens = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def search_grandchild
+    respond_to do |format|
+      format.html
+      format.json do
+        @grandchildrens = Category.find(params[:child_id]).children
+      end
+    end
+  end
+
   def set_caegory_for_new_create
     @category_parent_array = ["選択してください"] + Category.where(ancestry: nil).first(13).pluck(:name)
   end
@@ -49,29 +68,25 @@ class ItemsController < ApplicationController
   def done
   end
 
-  private
-  def item_params
-    params.require(:item).permit(
-      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, :brand_id, [item_images_attributes: [:url]]
-      ).merge(user_id: current_user.id, seller: current_user.id, order_status: "出品中")
-  end
-
-  def edit
-    # @item_image = Item_Image.find(params[:id])
-    @item = Item.find(params[:id])
+  def destroy
+    if @item.destroy
+      redirect_to root_path, notice: '削除しました'
+    else
+      render :show
+    end
   end
   
+  
+
+  
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
+    if @item.update(item_params)
       # flash[:notice] = "内容を更新しました"
       redirect_to root_path
     else
       # flash.now[:alert] = "編集内容を確認してください"
       render item_path
     end
-  end
-  def step1
   end
 
   def create
@@ -89,15 +104,18 @@ class ItemsController < ApplicationController
   end
 
   private
+
+
   def item_params
     params.require(:item).permit(
-      :name, :detail, :price, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [brand_attributes: [:name]], [item_images_attributes: [:url]]
-      )
+      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, :brand_id, [item_images_attributes: [:url]]
+      ).merge(user_id: current_user.id, seller: current_user.id, order_status: "出品中")
   end
 
-  private
-  def item_params
-    params.require(:item).permit(:name, :detail, :price, :brand_id, :condition_id, :fee_burden_id, :prefecture_id, :shippng_days)
+
+  def set_item
+    @item = Item.find(params[:id])
   end
+
 end
 # :size_id,, :shipping_method, :category_id, :order_status, :seller, :buyer
