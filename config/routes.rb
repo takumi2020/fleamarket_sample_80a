@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
 
-
   resources :cards, only: [:pay]
   resources :cards, only: [:new, :show] do
     collection do
@@ -39,6 +38,8 @@ Rails.application.routes.draw do
   get 'itemindex' => 'items#itemindex'
   resources :items do
     member do
+      post 'purchase'
+      get 'purchased'
       get 'done'
     end
     resources :comments, only: :create

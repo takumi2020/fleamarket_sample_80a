@@ -87,6 +87,7 @@
             border: 1px solid transparent;
             border-radius: 4px;
             font-weight: bold;
+            text-decoration: none;
           }
         }
       }
@@ -113,4 +114,9 @@
 
 .paragraph{
   margin-top: 5px;
+}
+
+.pre{
+  display: inline-block;
+  margin-right: 8px;
 }
