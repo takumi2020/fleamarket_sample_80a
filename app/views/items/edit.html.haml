@@ -1,29 +1,39 @@
-= stylesheet_link_tag 'itemsnew', media: 'all'
+= stylesheet_link_tag 'itemnew', media: 'all'
 .new
   .newTop
     %p= image_tag 'logo/logo.png', class: "newTop--logo"
-
   .newMain
     .newMain-Box
       .newMain-Boxto
-      = form_with(model: @item, html:{class: "newMain-Box__form"}, local: true) do |f| 
+      = form_with model: @item, html:{class: "newMain-Box__form"}, local: true do |f| 
         = label :%, '出品画像',class: 'newMain-Box__form1 newlabel'
         %span.newspan 必須
-        %P.newMain-Boxtotext 最大10枚までアップロードできます
+        %p.newMain-Boxtotext 最大10枚までアップロードできます
         .newMain-img
-        = f.fields_for :url do |image|
-          .clearfix
-            %ul#previews
-              %li.input
-                %P.upload-label
-                  .upload-label__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    .input-area
-                    = image.file_field :url, class: "newimage_upload"
+          .prev-content
+            - @item.item_images.each do |image|
+              .preview-box
+                .upper-box
+                  = image_tag image.url.url, width: "112", height: "112", alt: "preview"
+                .lower-box
+                  .delete-box
+                    .delete-btn
+                      %span 削除
+          .label-content
+            %label{for: "item_item_images_attributes_#{@item.item_images.length}_url", class: "label-box", id: "label-box--0"}
+              %pre.label-box__text-visible クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :item_images do |i|
+              = i.file_field :url, class: "hidden-field"
+              = i.check_box :_destroy, class: "hidden-checkbox"
+              - @item.item_images.length.upto(5) do |i|
+                %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
+                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][5][url]", id: "item_item_images_attributes_5_url" }
         .newMain-BoxtoLine
-        = form_with(model: @item, html:{class: "newMain-Box__form"}, local: true) do |f|
           = label :%, '商品名',class: 'newlabel' 
           %span.newspan 必須
           %p= f.text_field :name, placeholder: '40文字まで', class: 'newMain-Boxto-name inputfield', autocomplete: "off", maxlength: '40', required: 'required'
@@ -36,19 +46,22 @@
             %span.count.float-right /1000
           .clear
           %section.newdetail.newMain-BoxtoLine2 商品の詳細
+          .product-details__form__category
           = label :%, 'カテゴリー',class: 'newlabel'
           %span.newspan 必須
-          -# = form_with(model: @item, html:{class: "newMain-Box__form"}, local: true) do |f|
-          - console
-          %p= f.select :budget_d, [["選択してください", 0]], {}, {class: 'select1 inputfield'}
-          -# = f.カテゴリーテーブルから持ってくる
-          -# 後ほど山崎さんができたら合わせる
-          = label :%, 'ブランド', class: 'newlabel' 
+          .form-input-select
+          -# %p= f.select :category_id, @category_parent_array, {}, {class: 'select1 inputfield', id: 'parent_category'}
+          %p= f.collection_select :category_id, Category.all, :id, :name, {prompt:"選択してください"}, class: 'select1 inputfield'
+          .listing-product-detail__category
+          = label :%, 'サイズ', class: 'newlabel' 
           %span.newspan_1 任意
-          %p= f.text_field :brand_id, placeholder: '例)  Apple', class: 'inputfield', autocomplete: "off", id: 'brand'
+          %p= f.collection_select :size_id, Size.all, :id, :name, {prompt:"選択してください"}, class: 'select2 inputfield'
+          = f.label 'ブランド', class: 'newlabel' 
+          %span.newspan_1 任意
+          %p= f.collection_select :brand_id, Brand.all, :id, :name, {prompt:"選択してください"}, class: 'select3 inputfield'
           = label :%, '商品の状態', class: 'newlabel' 
           %span.newspan 必須
-          %p=f.collection_select :condition_id, Condition.all, :id, :condition, {prompt: "選択してください"}, {class: 'select2 inputfield'}
+          %p=f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: 'select2 inputfield'}
           %section.newdetail.newMain-BoxtoLine2 配送について
           = label :%, '配送料の負担', class: 'newlabel' 
           %span.newspan 必須
@@ -67,23 +80,17 @@
             .pricemain-price
               ¥
               = f.text_field :price, placeholder: '0', class: '', autocomplete: "off", id: 'pricein'
-          -# %p.newpirce2 販売手数料
-          -# %p.newpirce3 販売利益
-          .newbtn  
-            %p= f.submit "変更する",class: 'newbtn-send'
-            -# = link_to item_path,method: :patch, class: "newbtn-send" do
-            -#   %p.chenge 変更する
-            %p= f.submit "下書きに保存",class: 'newbtn-draft'
-            = link_to "もどる", root_path, class: 'newbtn-back'
-            %p.newbtn-text 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-
-  .newfooter
-    %ul.newfooter-content
-      %li.newfooter-content1 プライバシーポリシー
-      %li.newfooter-content2 フリマ利用規約
-      %li.newfooter-content3 特定商取引に関する表記
-    .newfooter-logo
-      =image_tag 'logo/logo-white.png', class: "newTop--logo", size: '150x50'
-    .newfooter-text
-      &copy;TechcampTeamA, Inc.
-      -# =@item.condition.condition
+        .newbtn  
+          %p= f.submit "変更する",class: 'newbtn-send'
+          %p= f.submit "下書きに保存",class: 'newbtn-draft'
+          = link_to "もどる", root_path, class: 'newbtn-back'
+          %p.newbtn-text 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+    .newfooter
+      %ul.newfooter-content
+        %li.newfooter-content1 プライバシーポリシー
+        %li.newfooter-content2 フリマ利用規約
+        %li.newfooter-content3 特定商取引に関する表記
+      .newfooter-logo
+        =image_tag 'logo/logo-white.png', class: "newTop--logo", size: '150x50'
+      .newfooter-text
+        &copy;TechcampTeamA, Inc.

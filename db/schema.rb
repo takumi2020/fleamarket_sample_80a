@@ -10,48 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_08_12_135913) do
-
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "ancestry"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url", null: false
-    t.bigint "item_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_item_images_on_item_id"
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "detail", null: false
-    t.integer "price", null: false
-    t.integer "brand_id"
-    t.integer "condition_id", null: false
-    t.integer "fee_burden_id", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "size_id", null: false
-    t.integer "shipping_days_id", null: false
-    t.integer "shipping_method_id", null: false
-    t.integer "category_id", null: false
-    t.integer "order_status", null: false
-    t.integer "seller", null: false
-    t.integer "buyer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-ActiveRecord::Schema.define(version: 2020_08_17_125251) do
+ActiveRecord::Schema.define(version: 2020_08_18_104307) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -66,11 +25,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_125251) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+  
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -124,12 +79,18 @@ ActiveRecord::Schema.define(version: 2020_08_17_125251) do
     t.integer "condition_id", null: false
     t.integer "fee_burden_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "size_id", null: false
+    t.integer "size_id"
     t.integer "shipping_days_id", null: false
     t.integer "shipping_method_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "category_id"
+    t.text "order_status", null: false
+    t.integer "seller", null: false
+    t.integer "buyer"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -152,8 +113,8 @@ ActiveRecord::Schema.define(version: 2020_08_17_125251) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
-  add_foreign_key "cards", "users"
   add_foreign_key "creditcards", "users"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
 end
