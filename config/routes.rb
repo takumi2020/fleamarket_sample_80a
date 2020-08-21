@@ -34,8 +34,8 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  resources :items 
-  get 'itemindex' => 'items#itemindex'
+  # resources :items 
+  # get 'itemindex' => 'items#itemindex'
   resources :items do
     member do
       post 'purchase'
