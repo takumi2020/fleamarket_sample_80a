@@ -362,6 +362,7 @@ DEPENDENCIES
   carrierwave
   devise
   dotenv-rails
+  factory_bot_rails
   faker
   font-awesome-sass
   haml-rails (>= 1.0, <= 2.0.1)
