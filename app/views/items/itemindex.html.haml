@@ -1,0 +1,15 @@
+= stylesheet_link_tag "items", media: "all"
+= stylesheet_link_tag "itemindex", media: "all"
+= render partial: "toppage/header"
+.main__products__product__contents
+  - @items.each do |item|
+    .main__products__product__contents__content.effect-fade
+      = link_to "/items/#{item.id}" do
+        .main__products__product__contents__content__image
+          = image_tag "/assets/icon/icon-01.png", height: "337.61", width: "219.33"
+          -# = image_tag item.item_images[0].url.url
+          .main__products__product__contents__content__image__price
+            = "¥#{item.price}"
+        .main__products__product__contents__content__name
+          %p= "#{item.name}"
+= render partial: "toppage/footer"
