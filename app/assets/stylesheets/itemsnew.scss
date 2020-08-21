@@ -75,6 +75,7 @@
       font-size: 14px;
       line-height: 1.5;
       font-weight: bold;
+      
       pointer-events: none;
       white-space: pre-wrap;
       word-wrap: break-word;
@@ -171,7 +172,7 @@ P{
   justify-content: space-between;
   &-price{
     position: relative;
-    right: 9vw;
+    right: -14px;
   }
 }
 .newspan_1{
@@ -214,8 +215,6 @@ textarea:focus {
 .countform{
   margin: 10px -13px 45px 0 ;
   float: right;
-  position: relative;
-  right: 13vw;
   .float-right{
     color: #a5a5a5;
     font-size: 12px;
@@ -254,6 +253,10 @@ textarea:focus {
     color: #fff;
     font-weight: bold;
     border: none;
+    text-decoration: none;
+    .chenge {
+      padding-left: 150px;
+    }
   }
   &-draft{
     width: 360px;
