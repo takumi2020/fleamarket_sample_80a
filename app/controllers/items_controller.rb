@@ -3,6 +3,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :set_caegory_for_new_create, only: [:new, :create, :edit, :update]
 
+  def itemindex
+    @items = Item.all
+  end
+
   def index
   end
 
