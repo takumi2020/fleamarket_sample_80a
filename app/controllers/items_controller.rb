@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   require 'payjp'
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :purchase, :done]
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
   def index
@@ -67,18 +67,32 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @user = User.find(params[:id])
-    @item = Item.find(params[:id])
-    @address = Address.find(params[:id])
+    @user = User.find(current_user.id)
+    @address = Address.find(current_user.id)
     @grandchildren = @item.category
     @children = @grandchildren.parent
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      # redirect_to action: "new" 
+      redirect_to new_card_path(current_user.id), alert: 'クレジットカードを登録してください'
     else
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
@@ -91,7 +105,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     card = Card.where(user_id: current_user.id).first
     charge = Payjp::Charge.create(
@@ -100,8 +113,7 @@ class ItemsController < ApplicationController
       customer: Payjp::Customer.retrieve(card.customer_id),
       currency: 'jpy'
     )
-    @item_buyer = Item.find(params[:id])
-    @item_buyer.update( buyer: current_user.id, order_status: "売切れ")
+    @item.update( buyer: current_user.id, order_status: "売切れ")
     redirect_to root_path, alert: '購入致しました'
   end
 

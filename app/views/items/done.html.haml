@@ -2,7 +2,7 @@
 = stylesheet_link_tag 'itemdone', media: 'all'
 .wrapper__done
   .top
-    = link_to "#" do
+    = link_to root_path do
       = image_tag "logo/logo.png", height: "49", width: "185"
   .middle
     .purchaseConfirm
@@ -30,6 +30,7 @@
             -# = link_to "変更する ＞", "#", class: "changeButton"
           .cardInformation
             %p.paragraph クレジットカード
+            = image_tag "SVG/#{@card_src}", width: '50', alt: @card_brand, id: "card_image"
             %p.paragraph
             = "**** **** **** " + @default_card_information.last4
             %p.paragraph
@@ -37,12 +38,11 @@
               - exp_month = @default_card_information.exp_month.to_s
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               = exp_month + " / " + exp_year
-            = image_tag "logo/visa.png", height: "14.81", width: "48", class:"visa"
       %section.purchaseConfirm__contents
         .shippingAddress
           .shipping
             %h3.shipping__title 配送先
-            = link_to "変更する ＞",address_user_path , class: "changeButton"
+            = link_to "変更する ＞",address_user_path(current_user.id) , class: "changeButton"
           .userAddress
             %p.paragraph 
               〒
@@ -72,5 +72,5 @@
         %li.bottomLists__content
           = link_to "特定商取引に関する表記", "#", class: "other"
     = link_to "#" do
-      = image_tag "/assets/logo/logo-white.png", height: "55", width: "160"
+      = image_tag "logo/logo-gray.png", height: "55", width: "160"
     %p.paragraph © TechcampTeamA, Inc.

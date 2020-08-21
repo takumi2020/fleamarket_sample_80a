@@ -153,9 +153,10 @@
 
 
 = render partial: "toppage/footer"
-
-= link_to '#' do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    .purchaseBtn__icon
-      =image_tag "/assets/icon/icon_camera.png", width: '80px'
+- if user_signed_in? && current_user.id == @item.user_id
+- else
+  = link_to new_item_path do
+    .purchaseBtn
+      %span.purchaseBtn__text 出品する
+      .purchaseBtn__icon
+        =image_tag "/assets/icon/icon_camera.png", width: '80px'

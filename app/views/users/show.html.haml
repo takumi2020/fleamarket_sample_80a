@@ -31,7 +31,6 @@
         -#   = link_to "ガイド","#", class: "MypageNav__link" 
         -# %li.MypageNav__items
         -#   = link_to "お問い合わせ","#", class: "MypageNav__link" 
-     
       %h3.MypageNav__header
         設定
       %ul.MypageNav__list
@@ -69,7 +68,7 @@
       %ul.Mypage__tabs
         %li.Mypage__tab
   
-  = link_to "#", class: "Sell__btn" do
+  = link_to new_item_path, class: "Sell__btn" do
     %h2.Sell__text 出品
     = icon('fas', 'camera', class: "Sell__icon")
 = render partial: "toppage/footer"
