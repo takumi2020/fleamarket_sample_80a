@@ -54,9 +54,9 @@
             %p.paragraph
               = @address.house_number
             %p.paragraph.pre
-              = @user.family_name
+              = current_user.family_name
             %span
-              = @user.last_name
+              = current_user.last_name
               
       %section.purchaseConfirm__contents
         %button.purchaseButton

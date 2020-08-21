@@ -67,11 +67,10 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @user = User.find(current_user.id)
     @address = Address.find(current_user.id)
     @grandchildren = @item.category
     @children = @grandchildren.parent
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card_path(current_user.id), alert: 'クレジットカードを登録してください'
     else
@@ -106,7 +105,7 @@ class ItemsController < ApplicationController
 
   def purchase
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     charge = Payjp::Charge.create(
       # @item.price
       amount: @item.price,
