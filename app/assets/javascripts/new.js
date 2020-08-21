@@ -59,19 +59,9 @@ $(function(){
   $(document).on('click', '.delete-box', function() {
     var count = $('.preview-box').length;
     setLabel(count);
-<<<<<<< HEAD
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
-=======
-    //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
-    var id = $(this).attr('id').replace(/[^0-9]/g, '');
-    //取得したidに該当するプレビューを削除
->>>>>>> parent of 2212f95... sever_item_edit
     $(`#preview-box__${id}`).remove();
-    console.log("new")
-<<<<<<< HEAD
-=======
-    //フォームの中身を削除 
->>>>>>> parent of 2212f95... sever_item_edit
+
     $(`#item_item_images_attributes_${id}_url`).val("");
 
     var count = $('.preview-box').length;
@@ -86,7 +76,6 @@ $(function(){
   });
 });
 
-<<<<<<< HEAD
 $(function() {
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -173,5 +162,3 @@ $(function() {
     }
   });
 });
-=======
->>>>>>> parent of 2212f95... sever_item_edit
