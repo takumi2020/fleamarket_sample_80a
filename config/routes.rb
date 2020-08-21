@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'items#index'
+  # root 'items#index'
   resources :items do
     member do
       get 'done'
