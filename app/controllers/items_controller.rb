@@ -1,7 +1,14 @@
 class ItemsController < ApplicationController
+  require 'payjp'
   before_action :move_to_index, except: [:index, :show]
-  before_action :set_item, only: [:show, :destroy]
+
+  before_action :set_item, only: [:show, :destroy, :purchase, :edit, :update]
   before_action :set_caegory_for_new_create, only: [:new, :create]
+
+
+  def itemindex
+    @items = Item.all
+  end
 
   def index
   end
@@ -66,6 +73,32 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @address = Address.find(current_user.id)
+    @grandchildren = @item.category
+    @children = @grandchildren.parent
+    card = Card.find_by(user_id: current_user.id)
+    if card.blank?
+      redirect_to new_card_path(current_user.id), alert: 'クレジットカードを登録してください'
+    else
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      @card_brand = @default_card_information.brand      
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
+    end
   end
 
   def destroy
@@ -76,15 +109,47 @@ class ItemsController < ApplicationController
     end
   end
 
-  private
+  def purchase
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    card = Card.find_by(user_id: current_user.id)
+    charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: Payjp::Customer.retrieve(card.customer_id),
+      currency: 'jpy'
+    )
+    @item.update( buyer: current_user.id, order_status: "売切れ")
+    redirect_to root_path, alert: '購入致しました'
+  end
+
+
+
+  def edit
+  end
+
+  def update
+    if @item.update(item_params2)
+      # flash[:notice] = "内容を更新しました"
+      redirect_to root_path
+    else
+      # flash.now[:alert] = "編集内容を確認してください"
+      redirect_to root_path
+    end
+  end
+
+
+private
+
   def item_params
     params.require(:item).permit(
-      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, :brand_id, [item_images_attributes: [:url]]
+      :name, :detail, :price, :category_id, :size_id, :shipping_method_id, :condition_id, :shipping_days_id, :fee_burden_id, :prefecture_id, [item_images_attributes: [:url]]
       ).merge(user_id: current_user.id, seller: current_user.id, order_status: "出品中")
   end
 
   def set_item
     @item = Item.find(params[:id])
   end
-  
+  def item_params2
+    params.require(:item).permit(:name, :detail, :price, :brand_id, :condition_id, :fee_burden_id, :prefecture_id, :category_id, :budget_d, :shipping_days_id, item_images_attributes: [:url, :_destroy, :id])
+  end
+
 end

@@ -1,7 +1,8 @@
 = stylesheet_link_tag "itemnew", media: "all"
 .new
   .newTop
-    %p= image_tag 'logo/logo.png', class: "newTop--logo"
+    = link_to root_path do
+      %p= image_tag 'logo/logo.png', class: "newTop--logo"
 
   .newMain
     .newMain-Box

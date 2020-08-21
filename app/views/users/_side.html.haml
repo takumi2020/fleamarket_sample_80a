@@ -33,12 +33,10 @@
       %ul.MypageNav__list
         %li.MypageNav__items
           = link_to "プロフィール", profile_user_path(current_user.id), class: "MypageNav__link" 
-          -# profile_user_path
         %li.MypageNav__items
           = link_to "発送元・お届け先住所変更", address_user_path(current_user.id), class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "支払い方法", new_card_path(current_user.id), class: "MypageNav__link" 
-          -# card_path
         %li.MypageNav__items
           = link_to "メール/パスワード", '#', class: "MypageNav__link" 
         %li.MypageNav__items
@@ -47,4 +45,3 @@
           = link_to "電話番号の確認","#", class: "MypageNav__link" 
         %li.MypageNav__items
           = link_to "ログアウト", logout_user_path(current_user.id), class: "MypageNav__link" 
-          -# logout_user_path
