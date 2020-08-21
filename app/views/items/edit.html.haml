@@ -1,4 +1,4 @@
-= stylesheet_link_tag 'itemsnew', media: 'all'
+= stylesheet_link_tag 'itemnew', media: 'all'
 .new
   .newTop
     %p= image_tag 'logo/logo.png', class: "newTop--logo"
@@ -48,7 +48,7 @@
           %p= f.text_field :brand_id, placeholder: '例)  Apple', class: 'inputfield', autocomplete: "off", id: 'brand'
           = label :%, '商品の状態', class: 'newlabel' 
           %span.newspan 必須
-          %p=f.collection_select :condition_id, Condition.all, :id, :condition, {prompt: "選択してください"}, {class: 'select2 inputfield'}
+          %p=f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: 'select2 inputfield'}
           %section.newdetail.newMain-BoxtoLine2 配送について
           = label :%, '配送料の負担', class: 'newlabel' 
           %span.newspan 必須
