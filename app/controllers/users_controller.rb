@@ -50,10 +50,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def credit_save
+  end
+  
+
   
   private
   def address_params
-    params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name, :tell)
+    params.require(:address).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :tell)
   end
 
   def set_user
@@ -68,6 +72,6 @@ class UsersController < ApplicationController
     @parents = Category.all.order("id ASC").limit(13)
   end
   def user_params
-    params.require(:user).permit(:nickname, :email, :last_name, :family_name, :last_name_kana, :family_name_kana, :birthday, :introduce, :user_img)
+    params.require(:user).permit(:nickname, :introduce, :user_img)
   end
 end

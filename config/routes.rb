@@ -8,6 +8,17 @@ Rails.application.routes.draw do
     get 'creditcards', to: 'users/registrations#new_creditcard'
     post 'creditcards', to: 'users/registrations#create_creditcard'
   end
+
+
+  resources :cards, only: [:pay]
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
+  end
+
   resources :users, only: [:show, :edit, :update]do
     member do
       get 'profile'
@@ -15,6 +26,8 @@ Rails.application.routes.draw do
       get 'logout'
       get 'address'
       patch 'address_update'
+      get 'new_credit'
+      post 'new_credit'
     end
     collection do
       get 'ready'
@@ -24,4 +37,16 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :items 
   get 'itemindex' => 'items#itemindex'
+  resources :items do
+    member do
+      get 'done'
+    end
+    resources :comments, only: :create
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   end
+  
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end

@@ -1,4 +1,5 @@
 
+= stylesheet_link_tag 'itemdone', media: 'all'
 .wrapper__done
   .top
     = link_to "#" do
@@ -43,7 +44,7 @@
             %p.paragraph 筋肉塾
             %p.paragraph 塾長　岩谷 勇希
       %section.purchaseConfirm__contents
-        %button.purchaseButton{:type => "button"} 購入する
+        %button.purchaseButton{type: "button"} 購入する
   .bottom
     .bottomContents
       %ul.bottomLists
