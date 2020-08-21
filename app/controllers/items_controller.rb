@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:show, :destroy, :edit, :update]
-  before_action :set_caegory_for_new_create, only: [:new, :create]
+  before_action :set_caegory_for_new_create, only: [:new, :create, :edit, :update]
 
   def index
   end
@@ -80,12 +80,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(item_params2)
       # flash[:notice] = "内容を更新しました"
       redirect_to root_path
     else
       # flash.now[:alert] = "編集内容を確認してください"
-      render item_path
+      redirect_to root_path
     end
   end
 
@@ -100,4 +100,8 @@ private
   def set_item
     @item = Item.find(params[:id])
   end
+  def item_params2
+    params.require(:item).permit(:name, :detail, :price, :brand_id, :condition_id, :fee_burden_id, :prefecture_id, :category_id, :budget_d, :shipping_days_id, item_images_attributes: [:url, :_destroy, :id])
+  end
+
 end
