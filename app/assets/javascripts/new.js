@@ -20,13 +20,11 @@ $(function(){
                 </div>`
     return html;
   }
-
   function setLabel() {
     var prevContent = $('.label-content').prev();
     labelWidth = (620 - $(prevContent).css('width').replace(/[^0-9]/g, ''));
     $('.label-content').css('width', labelWidth);
   }
-
   $(document).on('change', '.hidden-field', function() {
     setLabel();
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
@@ -47,21 +45,18 @@ $(function(){
       if (count == 5) { 
         $('.label-content').hide();
       }
-
       setLabel();
       if(count < 5){
         $('.label-box').attr({id: `label-box--${count}`,for: `item_item_images_attributes_${count}_url`});
       }
     }
   });
-
   $(document).on('click', '.delete-box', function() {
     var count = $('.preview-box').length;
     setLabel(count);
     var id = $(this).attr('id').replace(/[^0-9]/g, '');
     $(`#preview-box__${id}`).remove();
     $(`#item_item_images_attributes_${id}_url`).val("");
-
     var count = $('.preview-box').length;
     if (count == 4) {
       $('.label-content').show();
@@ -73,7 +68,6 @@ $(function(){
     }
   });
 });
-
 $(function() {
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -103,7 +97,6 @@ $(function() {
                             </div>`;
     $('.listing-product-detail__category').append(grandchildSelectHtml);
   }
-
   $("#parent_category").on('change', function(){
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "選択してください"){
@@ -130,7 +123,6 @@ $(function() {
       $('#grandchildren_wrapper').remove();
     }
   });
-
   $('.listing-product-detail__category').on('change', '#child_category', function(){
     var childId = $('#child_category option:selected').data('category');
     if (childId != "選択してください"){
