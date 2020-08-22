@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
   def index
+    @items = Item.all
   end
 
   def show

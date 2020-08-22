@@ -381,10 +381,9 @@ form{
       width: 780px;
       margin: 26px auto;
       display: flex;
-      justify-content: space-around;
       .productList {
         width: 220px;
-        display: inline-block;
+        display: flex;
         float: left;
         a {
           background-color: #fff;
@@ -426,6 +425,16 @@ form{
                 align-items: center;
                 justify-content: space-between;
                 list-style: none;
+                .soldOut{
+                  width: 80%;
+                  height: 48px;
+                  line-height: 48px;
+                  color: #fff;
+                  background-color: red;
+                  text-align: center;
+                  font-weight: 600;
+                  margin: 10px 0 5px 19px;
+                }
                 li{
                   display: list-item;
                   text-align: -webkit-match-parent;
