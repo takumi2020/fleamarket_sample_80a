@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
   require 'payjp'
   before_action :move_to_index, except: [:index, :show]
-
-  before_action :set_item, only: [:show, :destroy, :purchase, :edit, :update]
+  before_action :set_item, only: [:destroy, :purchase, :edit, :update, :show, :done]
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
 
@@ -74,8 +73,6 @@ class ItemsController < ApplicationController
 
   def done
     @address = Address.find(current_user.id)
-    @grandchildren = @item.category
-    @children = @grandchildren.parent
     card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to new_card_path(current_user.id), alert: 'クレジットカードを登録してください'
@@ -131,7 +128,7 @@ class ItemsController < ApplicationController
       # flash[:notice] = "内容を更新しました"
       redirect_to root_path
     else
-      # flash.now[:alert] = "編集内容を確認してください"
+      # flash[:alert] = "編集内容を確認してください"
       redirect_to root_path
     end
   end
