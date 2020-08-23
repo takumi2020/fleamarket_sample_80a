@@ -77,6 +77,8 @@ gem 'devise'
 gem 'active_hash'
 gem 'payjp'
 
+gem 'fog'
+
 # 以下は、本番環境のみ使用
 group :production do
   gem 'unicorn'
