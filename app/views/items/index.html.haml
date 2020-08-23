@@ -79,6 +79,7 @@
       = link_to "新規投稿商品", '#', class: "title"
     .productLists
       .productList
+        - @items = @items.limit(4)
         - @items.each do |item|
           = link_to "/items/#{item.id}" do
             %figure.productList--img
