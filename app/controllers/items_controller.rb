@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_caegory_for_new_create, only: [:new, :create]
 
   def index
-    @items = Item.all
+    @items = Item.includes(:user).order("created_at DESC")
   end
 
   def show
