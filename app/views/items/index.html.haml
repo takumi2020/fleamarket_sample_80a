@@ -80,7 +80,7 @@
     .productLists
       .productList
         - @items.each do |item|
-          = link_to '#' do
+          = link_to "/items/#{item.id}" do
             %figure.productList--img
               - item.item_images.each do |image|
                 = image_tag image.url.url, height: "150", width: "220"
