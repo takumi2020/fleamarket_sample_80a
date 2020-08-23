@@ -3,7 +3,9 @@ $(function(){
       $('.count1000').text($(this).val().length);
   });
 });
+
 $(function(){
+
   //プレビューのhtmlを定義
   function buildHTML(count) {
     var html = `<div class="preview-box" id="preview-box__${count}">
@@ -60,6 +62,7 @@ $(function(){
       $('.label-content').show();
     }
     setLabel(count);
+
     if(id < 5){
       $('.label-box').attr({id: `label-box--${id}`,for: `item_item_images_attributes_${id}_url`});
     }
