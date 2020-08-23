@@ -36,7 +36,7 @@
           - @item.item_images.each do |image|
             %ul
               %li
-                = image_tag image.url.url, class: "imageList__content"
+                = image_tag image.url.url, size: "560×360", class: "imageList__content"
         .itemBox__price
           %span
             = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
