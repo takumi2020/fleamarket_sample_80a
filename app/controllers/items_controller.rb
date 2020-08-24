@@ -82,6 +82,8 @@ class ItemsController < ApplicationController
       render :show
     end
   end
+  
+  
 
   def purchase
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
