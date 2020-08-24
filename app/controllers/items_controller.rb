@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :set_item, only: [:destroy, :purchase, :edit, :update, :show, :done]
-  before_action :set_caegory_for_new_create, only: [:new, :create]
+  before_action :set_category_for_new_create, only: [:new, :create]
 
   def index
     @items = Item.includes(:user).order("created_at DESC")
   end
 
   def show
-    @item = Item.find(params[:id])
     @comment = Comment.new
     @comments = @item.comments.includes(:user)
     @grandchildren = @item.category
@@ -31,13 +30,13 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '出品が完了しました'
     else
-      redirect_to new_item_path
+      redirect_to new_item_path, alert: '入力内容を確認してください'
     end
   end
 
-  def set_caegory_for_new_create
+  def set_category_for_new_create
     @category_parent_array = ["選択してください"] + Category.where(ancestry: nil).first(13).pluck(:name)
   end
 
@@ -104,11 +103,9 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params2)
-      # flash[:notice] = "内容を更新しました"
-      redirect_to root_path
+      redirect_to item_path, notice: '内容を更新しました'
     else
-      # flash[:alert] = "編集内容を確認してください"
-      redirect_to root_path
+      render item_path, alert: '編集内容を確認してください'
     end
   end
 

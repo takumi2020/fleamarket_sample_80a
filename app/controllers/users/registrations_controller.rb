@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create, :create_address, :create_creditcard]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :set_address, only: [:edit_address, :update_address]
   def new
     @user = User.new
   end
@@ -59,12 +59,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def edit_address
-    @address = Address.find(params[:id])
   end
 
   def update_address
     user = User.find(params[:id])
-    address = Address.find(params[:id])
     address.update(address_params)
     redirect_to purchase_index_path
   end
@@ -88,6 +86,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+  end
+
+  def set_address
+    @address = Address.find(params[:id])
   end
 
 end
