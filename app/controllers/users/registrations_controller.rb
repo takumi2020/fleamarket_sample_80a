@@ -49,7 +49,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @creditcard = Creditcard.new(creditcard_params)
     unless @creditcard.valid?
       flash.now[:alert] = @creditcard.errors.full_messages
-      render :new_credit_card and return
+      render :new_creditcard and return
     end
     @user.build_address(@address.attributes)
     @user.build_creditcard(@creditcard.attributes)
