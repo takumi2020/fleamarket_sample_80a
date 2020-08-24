@@ -19,7 +19,7 @@
             マイページ
       - else
         %li.header--contentrigth1
-          = link_to new_user_registration_path, class: "usernew" do
+          = link_to new_user_registration_path, data: { no_turbolink: true }, class: "usernew" do
             新規会員登録
         %li.header--contentrigth1
           = link_to new_user_session_path, class: "login" do
