@@ -6,7 +6,7 @@
       .form__text
         %label.textlabel(for="file")アカウントをお持ちでない方はこちら
       .new
-        = link_to new_user_registration_path, data: { no_turbolink: true }, class: "newbtn" do
+        = link_to new_user_registration_path, class: "newbtn" do
           新規会員登録
         -# %button.newbtn{type: :button}
         -#   新規会員登録
