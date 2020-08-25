@@ -13,7 +13,7 @@ $(window).bind("load", function(){
       e.preventDefault();
       payjp.createToken(numberElement).then(function (response) {
         if (response.error) {        // = 通信に失敗したとき
-          alert(r.error.message)
+          alert(response.error.message)
           regist_card.prop('disabled', false)
         } else {
           alert("登録が完了しました");
