@@ -50,9 +50,9 @@
           = label :%, 'カテゴリー',class: 'newlabel'
           %span.newspan 必須
           .form-input-select
-            %p= f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'select1 inputfield', id: 'parent_category'}
-            %p= f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'select1 inputfield', id: 'child_category'}
-            %p= f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'select1 inputfield', id: 'grandchild_category'}
+            %p= f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'select1 inputfield', id: 'parent_category', name: 'change'}
+            %p= f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'select1 inputfield change', id: 'child_category'}
+            %p= f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'select1 inputfield change', id: 'grandchild_category'}
           .listing-product-detail__category
           = label :%, 'サイズ', class: 'newlabel' 
           %span.newspan_1 任意
