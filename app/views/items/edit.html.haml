@@ -20,24 +20,18 @@
                     .delete-btn
                       %span 削除
           .label-content
-            %label{for: "item_item_images_attributes_#{@item.item_images.length}_url", class: "label-box", id: "label-box--0"}
+            = f.label :"item_images_attributes_#{@item.item_images.length}_url", class: "label-box", id: "label-box--#{@item.item_images.length}" do
               %pre.label-box__text-visible クリックしてファイルをアップロード
           .hidden-content
             = f.fields_for :item_images do |i|
               = i.file_field :url, class: "hidden-field"
               = i.check_box :_destroy, class: "hidden-checkbox"
-              - @item.item_images.length.upto(5) do |i|
-                %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
-                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][1][url]", id: "item_item_images_attributes_1_url" }
-                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][2][url]", id: "item_item_images_attributes_2_url" }
-                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][3][url]", id: "item_item_images_attributes_3_url" }
-                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][4][url]", id: "item_item_images_attributes_4_url" }
-                %input{class:"hidden-field", type: "file", name: "item[item_images_attributes][5][url]", id: "item_item_images_attributes_5_url" }
+              - @item.item_images.length.upto(4) do |i|
+                %input{name: "item[item_images_attributes][#{i}][url]", id: "item_item_images_attributes_#{i}_url", class:"hidden-field", type:"file"}
         .newMain-BoxtoLine
           = label :%, '商品名',class: 'newlabel' 
           %span.newspan 必須
           %p= f.text_field :name, placeholder: '40文字まで', class: 'newMain-Boxto-name inputfield', autocomplete: "off", maxlength: '40', required: 'required'
-          -# limit 40 ?? option追加
           = label :%, '商品の詳細',class: 'newlabel'
           %span.newspan 必須
           %p= f.text_area :detail, size: "75x7", placeholder: "商品の説明（必須 1,000文字以内） \n（色、素材、重さ、定価、注意点など）\n\n例）1900年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。\nあわせやすいのでおすすめです。", autocomplete: "off", maxlength: '1000', id: 'inputin', class: 'countup'
